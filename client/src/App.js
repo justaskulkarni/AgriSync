@@ -14,6 +14,7 @@ import FarmerPrivateRoutes from "./utils/FarmerPrivateRoutes";
 import MFEPrivateRoutes from "./utils/MFEPrivateRoutes";
 import PACPrivateRoutes from "./utils/PACPrivateRoutes";
 import FarmerDashboard from "./pages/FarmerDashboard";
+import Success from "./pages/Success";
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
             <Route path="/pac/dashboard" element={<PACDashboard />} />
           </Route>
           <Route path="/farmer/dashboard" element={<FarmerDashboard />} />
+          <Route path="/success" element={<Success />} />
         </Routes>
       </BrowserRouter>
     </div>
