@@ -20,7 +20,7 @@ const Login = () => {
 
 		if (json.success) {
 			localStorage.setItem("Token", json.authToken);
-			navigate("/user/dashboard");
+			navigate("/farmer/dashboard");
 		}
 
 		if (json.error) {

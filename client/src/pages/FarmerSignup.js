@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-const Signup = () => {
+const FarmerSignup = () => {
   const [credentials, setCredentials] = useState({ email: "", name: "", password: "" });
   const [error, setError] = useState(null);
   let navigate = useNavigate();
@@ -20,7 +20,7 @@ const Signup = () => {
 
     if (json.success) {
       localStorage.setItem("Token", json.authToken);
-      navigate("/user/dashboard");
+      navigate("/farmer/dashboard");
     }
 
     if (json.error) {
@@ -54,4 +54,4 @@ const Signup = () => {
   )
 }
 
-export default Signup
+export default FarmerSignup

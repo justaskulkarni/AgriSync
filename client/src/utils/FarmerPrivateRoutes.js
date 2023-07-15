@@ -1,7 +1,7 @@
 import { Outlet, Navigate } from "react-router-dom"
 import jwt_decode from 'jwt-decode'
 
-const UserPrivateRoutes = () => {
+const FarmerPrivateRoutes = () => {
 
     const returnRole = (reqtoken) => {
         if (reqtoken) {
@@ -16,8 +16,8 @@ const UserPrivateRoutes = () => {
     var frole = returnRole(localStorage.getItem("Token"))
 
     return (
-        (localStorage.getItem("Token") && frole === "User") ? <Outlet /> : <Navigate to="/login" />
+        (localStorage.getItem("Token") && frole === "User") ? <Outlet /> : <Navigate to="/farmer/login" />
     )
 }
 
-export default UserPrivateRoutes
+export default FarmerPrivateRoutes

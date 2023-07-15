@@ -1,10 +1,10 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Home from './pages/Home'
-import Login from "./pages/Login";
-import Signup from "./pages/Signup";
-import Dashboard from "./pages/Dashboard";
-import UserPrivateRoutes from "./utils/UserPrivateRoutes";
+import FarmerLogin from "./pages/FarmerLogin";
+import FarmerSignup from "./pages/FarmerSignup";
+import FarmerDashboard from "./pages/FarmerDashboard";
+import FarmerPrivateRoutes from "./utils/FarmerPrivateRoutes";
 
 function App() {
   return (
@@ -12,10 +12,10 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route element={<UserPrivateRoutes />}>
-            <Route path="/user/dashboard" element={<Dashboard />} />
+          <Route path="/farmer/login" element={<FarmerLogin />} />
+          <Route path="/farmer/signup" element={<FarmerSignup />} />
+          <Route element={<FarmerPrivateRoutes />}>
+            <Route path="/farmer/dashboard" element={<FarmerDashboard />} />
           </Route>
         </Routes>
       </BrowserRouter>
