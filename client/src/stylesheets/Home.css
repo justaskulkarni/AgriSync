@@ -22,8 +22,13 @@
 }
 
 .bg-img{
-    background-image: url("C:\Users\preet\OneDrive\Desktop\lets_endorse\Team-78\client\src\images\background.jpeg");
+    background-image: url("../images/background.jpeg");
     background-size: cover;
     background-repeat: no-repeat;
+}
+
+.ChartComponent{
+    width:500x;
+    width:500px;
 }
 
