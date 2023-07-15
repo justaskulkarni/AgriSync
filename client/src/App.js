@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import Home from './pages/Home'
+import Home from "./pages/Home";
 import FarmerLogin from "./pages/FarmerLogin";
 import FarmerSignup from "./pages/FarmerSignup";
 import PACLogin from "./pages/PACLogin";
@@ -13,6 +13,7 @@ import FarmerRequestForm from "./pages/FarmerRequestForm";
 import FarmerPrivateRoutes from "./utils/FarmerPrivateRoutes";
 import MFEPrivateRoutes from "./utils/MFEPrivateRoutes";
 import PACPrivateRoutes from "./utils/PACPrivateRoutes";
+import FarmerDashboard from "./pages/FarmerDashboard";
 
 function App() {
   return (
@@ -22,7 +23,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/farmer/login" element={<FarmerLogin />} />
           <Route path="/farmer/signup" element={<FarmerSignup />} />
-          <Route path="/pac/login" element={<PACLogin />}/>
+          <Route path="/pac/login" element={<PACLogin />} />
           <Route path="/pac/signup" element={<PACSignup />} />
           <Route path="/mfe/login" element={<MFELogin />} />
           <Route path="/mfe/signup" element={<MFESignup />} />
@@ -35,6 +36,7 @@ function App() {
           <Route element={<PACPrivateRoutes />}>
             <Route path="/pac/dashboard" element={<PACDashboard />} />
           </Route>
+          <Route path="/farmer/dashboard" element={<FarmerDashboard />} />
         </Routes>
       </BrowserRouter>
     </div>

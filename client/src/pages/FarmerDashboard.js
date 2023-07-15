@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { Container, Row, Col, Nav } from "react-bootstrap";
 
-const MFEDashboard = () => {
+function FarmerDashboard() {
   const [showSidebar, setShowSidebar] = useState(true);
 
   const handleToggleSidebar = () => {
@@ -47,6 +47,6 @@ const MFEDashboard = () => {
       </Container>
     </>
   );
-};
+}
 
-export default MFEDashboard;
+export default FarmerDashboard;
