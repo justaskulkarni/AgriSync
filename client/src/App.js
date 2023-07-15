@@ -16,6 +16,7 @@ import MFEPrivateRoutes from "./utils/MFEPrivateRoutes";
 import PACPrivateRoutes from "./utils/PACPrivateRoutes";
 import FarmerDashboard from "./pages/FarmerDashboard";
 import Success from "./pages/Success";
+import ChartComponent from "./pages/ChartComponent";
 import MFEProducts from "./pages/MFEProducts";
 import CPCLogin from "./pages/CPCLogin";
 
@@ -33,8 +34,12 @@ function App() {
           <Route path="/pac/signup" element={<PACSignup />} />
           <Route path="/mfe/login" element={<MFELogin />} />
           <Route path="/mfe/signup" element={<MFESignup />} />
+
+          <Route path="/chart" element={<ChartComponent/>} />
+
           <Route path="/cpc/login" element={<CPCLogin />} />
           <Route path="/cpc/signup" element={<CPCSignup />} />
+
           <Route element={<FarmerPrivateRoutes />}>
             <Route path="/farmer/requestform" element={<FarmerRequestForm />} />
           </Route>
