@@ -2,7 +2,7 @@ import React from 'react'
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 const PACSignup = () => {
-  const [credentials, setCredentials] = useState({ email: "", name: "", password: "" });
+  const [credentials, setCredentials] = useState({ email: "", district: "", state: "", password: "" });
   const [error, setError] = useState(null);
   let navigate = useNavigate();
   const onChange = (event) => {
@@ -13,7 +13,7 @@ const PACSignup = () => {
     const response = await fetch("http://localhost:6100/api/pac/signup", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email: credentials.email, name: credentials.name, password: credentials.password }),
+      body: JSON.stringify({ email: credentials.email, district: credentials.district, state: credentials.state, password: credentials.password }),
     });
 
     const json = await response.json();
@@ -27,7 +27,8 @@ const PACSignup = () => {
       setError(json.error);
       setCredentials({
         email: "",
-        name: "",
+        district: "",
+        state: "",
         password: "",
       });
       setTimeout(() => {
@@ -38,8 +39,11 @@ const PACSignup = () => {
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="Name">Name</label>
-        <input type="text" value={credentials.name} name="name" onChange={onChange} placeholder="" />
+        <label htmlFor="District">District</label>
+        <input type="text" value={credentials.district} name="district" onChange={onChange} placeholder="" />
+
+        <label htmlFor="State">State</label>
+        <input type="text" value={credentials.state} name="state" onChange={onChange} placeholder="" />
 
         <label htmlFor="Email">Email</label>
         <input type="email" value={credentials.email} name="email" onChange={onChange} placeholder="" />
