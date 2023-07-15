@@ -1,71 +1,9 @@
-import React from "react";
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-const PACSignup = () => {
-  const [credentials, setCredentials] = useState({
-    email: "",
-    district: "",
-    state: "",
-    password: "",
-  });
-  const [error, setError] = useState(null);
-  let navigate = useNavigate();
-  const onChange = (event) => {
-    setCredentials({ ...credentials, [event.target.name]: event.target.value });
-  };
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const response = await fetch("http://localhost:6100/api/mfe/signup", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        email: credentials.email,
-        district: credentials.district,
-        state: credentials.state,
-        password: credentials.password,
-      }),
-    });
+import React from 'react'
 
-    const json = await response.json();
-
-    if (json.success) {
-      localStorage.setItem("Token", json.authToken);
-      navigate("/mfe/dashboard");
-    }
-
-    if (json.error) {
-      setError(json.error);
-      setCredentials({
-        email: "",
-        district: "",
-        state: "",
-        password: "",
-      });
-      setTimeout(() => {
-        setError(null);
-      }, 4000);
-    }
-  };
+const FarmerDashboard = () => {
   return (
     <>
-      {/* <form onSubmit={handleSubmit}>
-        <label htmlFor="District">District</label>
-        <input type="text" value={credentials.district} name="district" onChange={onChange} placeholder="" />
-
-        <label htmlFor="State">State</label>
-        <input type="text" value={credentials.state} name="state" onChange={onChange} placeholder="" />
-
-        <label htmlFor="Email">Email</label>
-        <input type="email" value={credentials.email} name="email" onChange={onChange} placeholder="" />
-
-        <label htmlFor="Password">Password</label>
-        <input type="password" value={credentials.password} name="password" onChange={onChange} placeholder="" />
-
-        <button>Sign Up</button>
-        {error && <div>{error}</div>}
-      </form> */}
-
-      <div>
+    <div>
         <section
           className="h-100 gradient-form"
           style={{ backgroundColor: "#eee" }}
@@ -84,80 +22,76 @@ const PACSignup = () => {
                             alt="logo"
                           />
                           <h4 className="mt-1 mb-5 pb-1">
-                            We are The Lotus Team
+                            Please Fill Up the Request Form
                           </h4>
                         </div>
                         <form>
-                          <h5>New Account</h5>
+                          {/* <h5>New Account</h5> */}
 
                           <div className="form-outline mb-4">
                             <input
                               type="text"
-                              value={credentials.name}
-                              name="name"
-                              onChange={onChange}
-                              placeholder="Name"
+                              //id="form2Example11" we need to make different IDs
                               className="form-control"
+                              placeholder="Enter your Full name"
                             />
                             <label
                               className="form-label"
                               htmlFor="form2Example11"
                             >
-                              Name
+                              Name of the Commodity
                             </label>
                           </div>
 
                           <div className="form-outline mb-4">
                             <input
-                              type="email"
-                              value={credentials.email}
-                              name="email"
-                              onChange={onChange}
-                              placeholder="Email id"
+                              type="number"
+                              id="form2Example11"
                               className="form-control"
+                              placeholder="Enter your email address"
                             />
                             <label
                               className="form-label"
                               htmlFor="form2Example11"
                             >
-                              Email
+                              Quantity (in Kg)
                             </label>
                           </div>
 
                           <div className="form-outline mb-4">
-                            <p>SET UP A PASSWORD</p>
-
                             <input
-                              type="password"
-                              value={credentials.password}
-                              name="password"
-                              onChange={onChange}
-                              placeholder="Password"
+                              type="text"
+                              id="form2Example22"
                               className="form-control"
+                              // placeholder="Enter your desired username"
                             />
                             <label
                               className="form-label"
                               htmlFor="form2Example22"
                             >
-                              Password
+                              District
                             </label>
                           </div>
 
+                          
                           <div className="text-center pt-1 mb-5 pb-1">
                             <button
                               className="btn btn-primary btn-block fa-lg gradient-custom-2 m-5"
                               type="button"
-                              onClick={handleSubmit}
                             >
-                              Confirm
+                              Send Request
                             </button>
                           </div>
+
+
                         </form>
                       </div>
                     </div>
                     <div className="col-lg-6 d-flex align-items-center gradient-custom-2">
                       <div className="text-white px-3 py-4 p-md-5 mx-md-4">
-                        <h4 className="mb-4">MFE</h4>
+                        <h4 className="mb-4">
+                          We are more than just a company
+                        </h4>
                         <p className="small mb-0">
                           Lorem ipsum dolor sit amet, consectetur adipisicing
                           elit, sed do eiusmod tempor incididunt ut labore et
@@ -175,7 +109,7 @@ const PACSignup = () => {
         </section>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default PACSignup;
+export default FarmerDashboard

@@ -24,7 +24,7 @@ const Login = () => {
 
     if (json.success) {
       localStorage.setItem("Token", json.authToken);
-      navigate("/farmer/dashboard");
+      navigate("/farmer/requestform");
     }
 
     if (json.error) {
@@ -72,28 +72,28 @@ const Login = () => {
                           We are The Lotus Team
                         </h4>
                       </div>
-                      <form>
+                      <form >
                         <p>Please login to your account</p>
                         <div className="form-outline mb-4">
-                          <input
+                          {/* <input
                             type="email"
                             id="form2Example11"
                             className="form-control"
                             placeholder="Phone number or email address"
-                          />
+                          /> */}
+						  <input type="email" value={credentials.email} name="email" onChange={onChange} placeholder="Email" id="form2Example11"
+                            className="form-control"/>
                           <label
                             className="form-label"
                             htmlFor="form2Example11"
                           >
-                            Username
+                            Email
                           </label>
                         </div>
                         <div className="form-outline mb-4">
-                          <input
-                            type="password"
-                            id="form2Example22"
-                            className="form-control"
-                          />
+                          
+						  <input type="password" value={credentials.password} name="password" onChange={onChange} placeholder="Password" id="form2Example22"
+                            className="form-control"/>
                           <label
                             className="form-label"
                             htmlFor="form2Example22"
@@ -105,12 +105,11 @@ const Login = () => {
                           <button
                             className="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3"
                             type="button"
+							onClick={handleSubmit}
                           >
                             Log in
                           </button>
-                          <a className="text-muted" href="#!">
-                            Forgot password?
-                          </a>
+                          
                         </div>
                         <div className="d-flex align-items-center justify-content-center pb-4">
                           <p className="mb-0 me-2">Don't have an account?</p>
