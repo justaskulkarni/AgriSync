@@ -101,9 +101,9 @@ router.get('/getall', async (req, res) => {
 router.get('/getall', async (req, res) => {
     try {
         const district = req.body.district;
-        const requests = await Request.find({ district });
+        const data = await Request.find({ district });
 
-        res.json({ requests });
+        res.json({ success: true, data: data });
 
     } catch (error) {
         res.status(400).json({ error: error.message })
