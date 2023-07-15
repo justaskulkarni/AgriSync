@@ -9,6 +9,7 @@ import MFELogin from "./pages/MFELogin";
 import MFESignup from "./pages/MFESignup";
 import MFEDashboard from "./pages/MFEDashboard";
 import PACDashboard from "./pages/PACDashboard";
+import PACViewGradedRequests from "./pages/PACViewGradedRequests"
 import FarmerRequestForm from "./pages/FarmerRequestForm";
 import FarmerPrivateRoutes from "./utils/FarmerPrivateRoutes";
 import MFEPrivateRoutes from "./utils/MFEPrivateRoutes";
@@ -37,6 +38,7 @@ function App() {
           </Route> */}
           <Route element={<PACPrivateRoutes />}>
             <Route path="/pac/dashboard" element={<PACDashboard />} />
+            <Route path="/pac/viewgraded" element={<PACViewGradedRequests />} />
           </Route>
           <Route path="/farmer/dashboard" element={<FarmerDashboard />} />
           <Route path="/success" element={<Success />} />

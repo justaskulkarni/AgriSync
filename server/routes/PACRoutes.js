@@ -99,7 +99,43 @@ router.get('/getall/:id', async (req, res) => {
     }
 })
 
+router.get('/getallgraded/:id', async (req, res) => {
+    try {
+        const district = req.params.id;
+        const data = await Request.find({ district, graded: true });
+
+        res.json({ success: true, data: data });
+
+    } catch (error) {
+        res.status(400).json({ error: error.message })
+    }
+})
+
 router.get('/getbyid/:id', async (req, res) => {
+    try {
+        const id = req.params.id;
+        const data = await Request.findOne({ _id: id, graded: false })
+
+        res.json({ success: true, data: data });
+
+    } catch (error) {
+        res.status(400).json({ error: error.message })
+    }
+})
+
+router.get('/lasttry/:id', async (req, res) => {
+    try {
+        const id = req.params.id;
+        const data = await Request.findOne({ _id: id, graded: true })
+
+        res.json({ success: true, data: data });
+
+    } catch (error) {
+        res.status(400).json({ error: error.message })
+    }
+})
+
+router.get('/getbyidgraded/:id', async (req, res) => {
     try {
         const id = req.params.id;
         const data = await Request.findOne({ _id: id, graded: false })
