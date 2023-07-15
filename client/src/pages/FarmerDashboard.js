@@ -1,50 +1,62 @@
 import React from "react";
 import { useState } from "react";
+import Card from "../components/Card";
 import { Container, Row, Col, Nav } from "react-bootstrap";
+import styles from "../stylesheets/pacdashboard.module.css";
+import { useNavigate, navigate } from "react-router-dom";
 
 function FarmerDashboard() {
   const [showSidebar, setShowSidebar] = useState(true);
+  const [idArray, setIdArray] = useState([]);
+  let navigate = useNavigate();
 
   const handleToggleSidebar = () => {
     setShowSidebar(!showSidebar);
   };
+  const handleLogout = () => {
+    localStorage.removeItem("Token");
+    navigate("/");
+  };
 
   return (
     <>
-      <Container fluid>
-        <Row>
-          {showSidebar && (
-            <Col md={2} className="bg-dark text-light sidebar">
-              <Nav className="flex-column">
-                <Nav.Link className="text-light" href="#dashboard">
-                  Dashboard
-                </Nav.Link>
-                <Nav.Link className="text-light" href="#products">
-                  Products
-                </Nav.Link>
-                <Nav.Link className="text-light" href="#orders">
-                  Orders
-                </Nav.Link>
-              </Nav>
-            </Col>
-          )}
-          <Col md={showSidebar ? 10 : 12} className="bg-light main-content">
-            <button
-              className="btn btn-primary toggle-btn"
-              onClick={handleToggleSidebar}
-            >
-              Toggle Sidebar
-            </button>
-            <h1 className="mt-4">Product Dashboard</h1>
-            <div className="p-4">
-              <h2 className="mb-3">Product Name</h2>
-              <p className="lead">Product A</p>
-              <h2 className="mb-3">Quantity</h2>
-              <p className="lead">10</p>
-            </div>
-          </Col>
-        </Row>
-      </Container>
+      <div className={styles.column + " " + styles.left}>
+        <div className={styles.smallcardleft}>
+          <button className={styles.leftbutton}>
+            <span className={styles.notifications}>Grade requests</span>
+          </button>
+          <button className={styles.leftbutton}>
+            <span className={styles.notifications}>At PAC</span>
+          </button>
+          <button className={styles.leftbutton}>
+            <span className={styles.notifications}>At MFE</span>
+          </button>
+          <button className={styles.leftbutton}>
+            <span className={styles.notifications}>Returned by MFE</span>
+          </button>
+          <button className={styles.leftbutton}>
+            <span className={styles.notifications}>Sent to CPC</span>
+          </button>
+        </div>
+        {localStorage.getItem("Token") && (
+          <button className={styles.logoutbtn} onClick={handleLogout}>
+            <span className={styles.welcometext2}>Logout</span>
+          </button>
+        )}
+      </div>
+      <div className={styles.column + " " + styles.middle}>
+        <div className={styles.leftbox}>
+          <span className={styles.analytics}>All request</span>
+          <span className={styles.welcometext}>Receive and grade requests</span>
+        </div>
+
+        <span className={styles.mentorrequests2}>All requests : </span>
+        <div className={styles.cardcontainer}>
+          {idArray.map((id) => (
+            <Card key={id} mentid={id} />
+          ))}
+        </div>
+      </div>
     </>
   );
 }
