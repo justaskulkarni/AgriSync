@@ -72,12 +72,8 @@ const FarmerSignup = () => {
                           <h5>New Account</h5>
 
                           <div className="form-outline mb-4">
-                            <input
-                              type="text"
-                              //id="form2Example11" we need to make different IDs
-                              className="form-control"
-                              placeholder="Enter your Full name"
-                            />
+                            
+                            <input type="text" value={credentials.name} name="name" onChange={onChange} placeholder="Name" className="form-control"/>
                             <label
                               className="form-label"
                               htmlFor="form2Example11"
@@ -87,12 +83,8 @@ const FarmerSignup = () => {
                           </div>
 
                           <div className="form-outline mb-4">
-                            <input
-                              type="email"
-                              id="form2Example11"
-                              className="form-control"
-                              placeholder="Enter your email address"
-                            />
+                            
+                            <input type="email" value={credentials.email} name="email" onChange={onChange} placeholder="Email id" className="form-control"/>
                             <label
                               className="form-label"
                               htmlFor="form2Example11"
@@ -101,28 +93,12 @@ const FarmerSignup = () => {
                             </label>
                           </div>
 
-                          <div className="form-outline mb-4">
-                            <input
-                              type="text"
-                              id="form2Example22"
-                              className="form-control"
-                              placeholder="Enter your desired username"
-                            />
-                            <label
-                              className="form-label"
-                              htmlFor="form2Example22"
-                            >
-                              Username
-                            </label>
-                          </div>
+                          
 
                           <div className="form-outline mb-4">
                             <p>SET UP A PASSWORD</p>
-                            <input
-                              type="password"
-                              id="form2Example22"
-                              className="form-control"
-                            />
+                            
+                             <input type="password" value={credentials.password} name="password" onChange={onChange} placeholder="Password" className="form-control"/>
                             <label
                               className="form-label"
                               htmlFor="form2Example22"
@@ -135,6 +111,7 @@ const FarmerSignup = () => {
                             <button
                               className="btn btn-primary btn-block fa-lg gradient-custom-2 m-5"
                               type="button"
+                              onClick={handleSubmit}
                             >
                               Confirm
                             </button>
