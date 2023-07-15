@@ -51,7 +51,8 @@ router.post('/login', async (req, res) => {
 router.post('/signup', async (req, res) => {
 
     try {
-        if (!req.body.email || !req.body.password || !req.body.name||!req.body.state||!req.body.district) {
+        console.log("hi");
+        if (!req.body.email || !req.body.password || !req.body.state||!req.body.district) {
             throw Error('All fields must be filled')
         }
 
@@ -67,7 +68,7 @@ router.post('/signup', async (req, res) => {
         pass = req.body.password
         const hashp = await bcrypt.hash(pass, salt);
 
-        const newUser = new User({
+        const newUser = new MFE({
             email: req.body.email,
             password: hashp,
             name: req.body.name,
@@ -77,7 +78,7 @@ router.post('/signup', async (req, res) => {
 
         await newUser.save()
 
-        const token = createToken(newUser._id, "PAC")
+        const token = createToken(newUser._id, "MFE")
         res.json({ success: true, authToken: token })
 
     } catch (error) {

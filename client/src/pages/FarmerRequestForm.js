@@ -1,9 +1,46 @@
 import React from 'react'
-
+import { useState } from 'react';
+import { useNavigate } from "react-router-dom";
 const FarmerDashboard = () => {
+  let navigate = useNavigate();
+  const [credentials, setCredentials] = useState({ name: "", quantity: "", district: "", state: "" });
+  const onChange = (event) => {
+    setCredentials({ ...credentials, [event.target.name]: event.target.value });
+};
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  const response = await fetch("http://localhost:6100/api/request/postreq", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+          name: credentials.name,
+          district: credentials.district,
+          quantity: credentials.quantity,
+          state: credentials.state,
+      }),
+  });
+
+  const json = await response.json();
+
+  if (json.success) {
+      navigate("/farmer/login");
+  }
+
+  if (json.error) {
+      console.log(json.error)
+      
+      setCredentials({
+          email: "",
+          district: "",
+          state: "",
+          password: "",
+      });
+      
+  }
+};
   return (
     <>
-    <div>
+      <div>
         <section
           className="h-100 gradient-form"
           style={{ backgroundColor: "#eee" }}
@@ -29,11 +66,14 @@ const FarmerDashboard = () => {
                           {/* <h5>New Account</h5> */}
 
                           <div className="form-outline mb-4">
+                            
                             <input
                               type="text"
-                              //id="form2Example11" we need to make different IDs
+                              value={credentials.name}
+                              name="name"
+                              onChange={onChange}
+                              placeholder="Commodity name"
                               className="form-control"
-                              placeholder="Enter your Full name"
                             />
                             <label
                               className="form-label"
@@ -44,11 +84,13 @@ const FarmerDashboard = () => {
                           </div>
 
                           <div className="form-outline mb-4">
-                            <input
-                              type="number"
-                              id="form2Example11"
+                          <input
+                              type="text"
+                              value={credentials.quantity}
+                              name="quantity"
+                              onChange={onChange}
+                              placeholder="Quantity"
                               className="form-control"
-                              placeholder="Enter your email address"
                             />
                             <label
                               className="form-label"
@@ -59,11 +101,13 @@ const FarmerDashboard = () => {
                           </div>
 
                           <div className="form-outline mb-4">
-                            <input
+                          <input
                               type="text"
-                              id="form2Example22"
+                              value={credentials.district}
+                              name="district"
+                              onChange={onChange}
+                              placeholder="district"
                               className="form-control"
-                              // placeholder="Enter your desired username"
                             />
                             <label
                               className="form-label"
@@ -73,11 +117,28 @@ const FarmerDashboard = () => {
                             </label>
                           </div>
 
-                          
+                          <div className="form-outline mb-4">
+                          <input
+                              type="text"
+                              value={credentials.state}
+                              name="state"
+                              onChange={onChange}
+                              placeholder="State"
+                              className="form-control"
+                            />
+                            <label
+                              className="form-label"
+                              htmlFor="form2Example22"
+                            >
+                              State
+                            </label>
+                          </div>
+
                           <div className="text-center pt-1 mb-5 pb-1">
                             <button
                               className="btn btn-primary btn-block fa-lg gradient-custom-2 m-5"
                               type="button"
+                              onClick={handleSubmit}
                             >
                               Send Request
                             </button>
