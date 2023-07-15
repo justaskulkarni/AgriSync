@@ -8,6 +8,7 @@ const Home = () => {
   return (
     <>
       {/* Navigation */}
+      <div className="bg-img">
       <nav className="navbar navbar-expand-lg bg-my static-top">
         <div className="container">
           <a className="navbar-brand" href="#">
@@ -93,6 +94,7 @@ const Home = () => {
             </div>
           </div>
         </div>
+      </div>
       </div>
     </>
   );
