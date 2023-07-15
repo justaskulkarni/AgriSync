@@ -11,7 +11,7 @@ const router = express.Router()
 router.post('/postreq', async (req, res) => {
 
     try {
-        if (!req.body.name || !req.body.quantity || !req.body.district) {
+        if (!req.body.name || !req.body.quantity || !req.body.district || !req.body.district) {
             throw Error('All fields must be filled')
         }
 
