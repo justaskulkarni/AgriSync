@@ -80,45 +80,42 @@ const Home = () => {
       {/* Hero */}
       <div className="container">
         <div className="row d-flex justify-content-between my-5">
-          <div className="p-5 text-left bg-14 col-md-4">
+          <div className="p-5 pr-md-0 text-left bg-14 col-md-4">
             <h1 className="mb-3">Farmer</h1>
-            <h4 className="mb-3">Subheading</h4>
-            <a className="btn btn-primary" href role="button">
-              Call to action
+            <h4 className="mb-3">A portal for Farmers</h4>
+            <a className="btn btn-primary btn-light-dark" href role="button">
+            <h4>Login</h4>
             </a>
           </div>
-          <div className="p-5 text-left bg-23 col-md-4">
+          <div className="p-5 pl-md-0 text-left bg-23 col-md-4">
             <h1 className="mb-3">MFE</h1>
-            <h4 className="mb-3">Subheading</h4>
-            <a className="btn btn-primary" href role="button">
-              Call to action
+            <h4 className="mb-3">A portal for the people working in MFE</h4>
+            <a className="btn btn-primary btn-light-dark" href role="button">
+            <h4>Login</h4>
             </a>
           </div>
         </div>
       </div>
 
-      {/* second container for cards */}
-
+      {/* Second container for cards */}
       <div className="container">
-        <div className="row d-flex justify-content-between  my-5">
-          <div className="p-5 text-left bg-23 col-md-4">
+        <div className="row d-flex justify-content-between my-5">
+          <div className="p-5 pl-md-0 text-left bg-23 col-md-4">
             <h1 className="mb-3">PAC</h1>
-            <h4 className="mb-3">Subheading</h4>
-            <a className="btn btn-primary" href role="button">
-              Call to action
+            <h4 className="mb-3">A portal for the people working in PAC</h4>
+            <a className="btn btn-primary btn-light-dark" href role="button">
+            <h4>Login</h4>
             </a>
           </div>
-          <div className="p-5 text-left bg-14 col-md-4">
+          <div className="p-5 pr-md-0 text-left bg-14 col-md-4">
             <h1 className="mb-3">CPC</h1>
-            <h4 className="mb-3">Subheading</h4>
-            <a className="btn btn-primary" href role="button">
-              Call to action
+            <h4 className="mb-3">A portal for the people working in CPC</h4>
+            <a className="btn btn-primary btn-light-dark" href role="button">
+            <h4>Login</h4>
             </a>
           </div>
         </div>
       </div>
-
-      {/* Hero */}
     </>
   );
 };
