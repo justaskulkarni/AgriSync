@@ -6,6 +6,16 @@
     background-color: #ef82b6;
     border-radius: 25px;
 }
+.btn-light-dark {
+    background-color: #79b7f4; /* Light initial color */
+    color: #212529; /* Text color */
+    transition: background-color 0.3s ease; /* Transition duration and easing */
+  }
+  
+  .btn-light-dark:hover {
+    background-color: #343a40; /* Darker color on hover */
+    color: #ffffff; /* Text color on hover */
+  }
 
 .bg-my{
     background-color: #f18295;

@@ -102,7 +102,7 @@ router.get('/getall/:id', async (req, res) => {
 router.get('/getbyid/:id', async (req, res) => {
     try {
         const id = req.params.id;
-        const data = await Request.findById(id);
+        const data = await Request.findOne({ _id: id, graded: false })
 
         res.json({ success: true, data: data });
 
@@ -113,8 +113,10 @@ router.get('/getbyid/:id', async (req, res) => {
 
 router.post('/grade/:id', async (req, res) => {
     try {
+        console.log("hi")
         const reqid = req.params.id;
         const grade = req.body.grade;
+        console.log(reqid, grade)
         const request = await Request.findOne({ reqid });
         if (!request) {
             return res.status(404).json({ error: 'Request not found' });
@@ -126,7 +128,7 @@ router.post('/grade/:id', async (req, res) => {
         
           // Save the updated request
           await request.save();
-        
+          console.log(request)
           res.json({ success: true, request: request });
 
     } catch (error) {
