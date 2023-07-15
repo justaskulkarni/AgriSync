@@ -86,22 +86,11 @@ router.post('/signup', async (req, res) => {
     }
 })
 
-router.get('/getall', async (req, res) => {
+
+router.get('/getall/:id', async (req, res) => {
     try {
-        const district = req.body.district;
-        const requests = await Request.find({ district });
-
-        res.json({ requests });
-
-    } catch (error) {
-        res.status(400).json({ error: error.message })
-    }
-})
-
-router.get('/getall', async (req, res) => {
-    try {
-        const district = req.body.district;
-        const data = await Request.find({ district });
+        const district = req.params.id;
+        const data = await Request.find({ district, graded: false });
 
         res.json({ success: true, data: data });
 
@@ -110,9 +99,21 @@ router.get('/getall', async (req, res) => {
     }
 })
 
-router.post('/grade', async (req, res) => {
+router.get('/getbyid/:id', async (req, res) => {
     try {
-        const reqid = req.body.reqid;
+        const id = req.params.id;
+        const data = await Request.findById(id);
+
+        res.json({ success: true, data: data });
+
+    } catch (error) {
+        res.status(400).json({ error: error.message })
+    }
+})
+
+router.post('/grade/:id', async (req, res) => {
+    try {
+        const reqid = req.params.id;
         const grade = req.body.grade;
         const request = await Request.findOne({ reqid });
         if (!request) {

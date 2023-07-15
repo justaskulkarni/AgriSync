@@ -1,24 +1,30 @@
 import { useState } from "react";
 import Card from "../components/Card"
-import { Container, Row, Col, Nav } from "react-bootstrap";
+import { useEffect } from "react";
 import styles from "../stylesheets/pacdashboard.module.css";
 import { useNavigate } from "react-router-dom";
 const PACDashboard = () => {
     let navigate = useNavigate();
     const [idArray, setIdArray] = useState([]);
-
+    
 	const getdata = async () => {
-		const response = await fetch("/api/pac/getall", {
-			method: "GET",
+        
+        const response = await fetch("http://localhost:6100/api/pac/getall/Thane", {
+            method: "GET",
 			headers: { "Content-Type": "application/json" },
+            
 		});
-
+        
 		const json = await response.json();
+        
 		if (json.success) {
-			const newIdArray = json.data.map((item) => item._id);
+            const newIdArray = json.data.map((item) => item._id);
 			setIdArray(newIdArray);
 		}
 	};
+    useEffect(() => {
+        getdata();
+    }, [idArray]);
     const handleLogout = () => {
         localStorage.removeItem("Token");
         navigate("/");
