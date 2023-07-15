@@ -8,14 +8,14 @@ const Request = require('../models/request')
 
 const router = express.Router()
 
-router.post('/signup', async (req, res) => {
+router.post('/postreq', async (req, res) => {
 
     try {
         if (!req.body.name || !req.body.quantity || !req.body.district) {
             throw Error('All fields must be filled')
         }
 
-        const newUser = new User({
+        const newUser = new Request({
             name: req.body.name,
             quantity: req.body.quantity,
             district: req.body.district

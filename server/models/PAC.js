@@ -9,4 +9,4 @@ const PACSchema = new Schema({
     district : {type:String},
 })
 
-module.exports = mongoose.model('MFE', PACSchema)
+module.exports = mongoose.model('PAC', PACSchema)
