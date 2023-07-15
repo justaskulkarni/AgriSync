@@ -1,10 +1,12 @@
 .bg-14{
     background-color: #f08061 ;
     border-radius: 25px;
+    opacity: 90%;
 }
 .bg-23{
     background-color: #ef82b6;
     border-radius: 25px;
+    opacity: 90%;
 }
 .btn-light-dark {
     background-color: #79b7f4; /* Light initial color */
@@ -28,7 +30,7 @@
 }
 
 .ChartComponent{
-    width:500x;
     width:500px;
+   height:500px;
 }
 

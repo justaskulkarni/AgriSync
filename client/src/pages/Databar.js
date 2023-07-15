@@ -1,19 +1,34 @@
-export const Data = [
+export const Databar = [
     {
       id: 1,
-      grade: 7,
-      graded:"graded"
+      item:"chilly" ,
+      quantity:87
     },
     {
-      id: 2,
-      grade: 5,
-      graded:"ungraded"
+        id: 2,
+        item:"tomato" ,
+        quantity:25
 
     },
     {
         id: 3,
-        grade: 9,
-        graded:"stale"
+      item:"onion" ,
+      quantity:35
+      },
+      {
+        id: 4,
+      item:"garlic" ,
+      quantity:50
+      },
+      {
+        id: 5,
+      item:"ginger" ,
+      quantity:60
+      },
+      {
+        id: 6,
+      item:"brinjal" ,
+      quantity:30
       },
 
   
