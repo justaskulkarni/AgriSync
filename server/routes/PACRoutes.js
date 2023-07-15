@@ -4,7 +4,7 @@ if (process.env.NODE_ENV !== "production") {
 
 const express = require('express');
 
-const PAC = require('../models/pac')
+const PAC = require('../models/PAC')
 
 const bcrypt = require('bcrypt')
 const validator = require('validator')
