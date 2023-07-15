@@ -1,7 +1,8 @@
 import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-const PACSignup = () => {
+
+const CPCSignup = () => {
   const [credentials, setCredentials] = useState({
     email: "",
     district: "",
@@ -15,7 +16,7 @@ const PACSignup = () => {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch("http://localhost:6100/api/pac/signup", {
+    const response = await fetch("http://localhost:6100/api/mfe/signup", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -30,10 +31,11 @@ const PACSignup = () => {
 
     if (json.success) {
       localStorage.setItem("Token", json.authToken);
-      navigate("/pac/dashboard");
+      navigate("/cpc/dashboard");
     }
 
     if (json.error) {
+      console.log(json.error);
       setError(json.error);
       setCredentials({
         email: "",
@@ -83,7 +85,7 @@ const PACSignup = () => {
                             style={{ width: 185 }}
                             alt="logo"
                           />
-                          <h4 className="mt-1 mb-5 pb-1">PAC Sign up!!</h4>
+                          <h4 className="mt-1 mb-5 pb-1">CPC Signup!!</h4>
                         </div>
                         <form>
                           <h5>New Account</h5>
@@ -172,7 +174,7 @@ const PACSignup = () => {
                     </div>
                     <div className="col-lg-6 d-flex align-items-center gradient-custom-2">
                       <div className="text-white px-3 py-4 p-md-5 mx-md-4">
-                        <h4 className="mb-4">PAC</h4>
+                        <h4 className="mb-4">CPC</h4>
                         <p className="small mb-0">
                           Lorem ipsum dolor sit amet, consectetur adipisicing
                           elit, sed do eiusmod tempor incididunt ut labore et
@@ -193,4 +195,4 @@ const PACSignup = () => {
   );
 };
 
-export default PACSignup;
+export default CPCSignup;

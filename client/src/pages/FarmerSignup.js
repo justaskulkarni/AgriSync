@@ -64,16 +64,20 @@ const FarmerSignup = () => {
                             style={{ width: 185 }}
                             alt="logo"
                           />
-                          <h4 className="mt-1 mb-5 pb-1">
-                            We are The Lotus Team
-                          </h4>
+                          <h4 className="mt-1 mb-5 pb-1">Farmer Signup!!</h4>
                         </div>
                         <form>
                           <h5>New Account</h5>
 
                           <div className="form-outline mb-4">
-                            
-                            <input type="text" value={credentials.name} name="name" onChange={onChange} placeholder="Name" className="form-control"/>
+                            <input
+                              type="text"
+                              value={credentials.name}
+                              name="name"
+                              onChange={onChange}
+                              placeholder="Name"
+                              className="form-control"
+                            />
                             <label
                               className="form-label"
                               htmlFor="form2Example11"
@@ -83,8 +87,14 @@ const FarmerSignup = () => {
                           </div>
 
                           <div className="form-outline mb-4">
-                            
-                            <input type="email" value={credentials.email} name="email" onChange={onChange} placeholder="Email id" className="form-control"/>
+                            <input
+                              type="email"
+                              value={credentials.email}
+                              name="email"
+                              onChange={onChange}
+                              placeholder="Email id"
+                              className="form-control"
+                            />
                             <label
                               className="form-label"
                               htmlFor="form2Example11"
@@ -93,12 +103,17 @@ const FarmerSignup = () => {
                             </label>
                           </div>
 
-                          
-
                           <div className="form-outline mb-4">
                             <p>SET UP A PASSWORD</p>
-                            
-                             <input type="password" value={credentials.password} name="password" onChange={onChange} placeholder="Password" className="form-control"/>
+
+                            <input
+                              type="password"
+                              value={credentials.password}
+                              name="password"
+                              onChange={onChange}
+                              placeholder="Password"
+                              className="form-control"
+                            />
                             <label
                               className="form-label"
                               htmlFor="form2Example22"
@@ -121,9 +136,7 @@ const FarmerSignup = () => {
                     </div>
                     <div className="col-lg-6 d-flex align-items-center gradient-custom-2">
                       <div className="text-white px-3 py-4 p-md-5 mx-md-4">
-                        <h4 className="mb-4">
-                          We are more than just a company
-                        </h4>
+                        <h4 className="mb-4">Farmer</h4>
                         <p className="small mb-0">
                           Lorem ipsum dolor sit amet, consectetur adipisicing
                           elit, sed do eiusmod tempor incididunt ut labore et

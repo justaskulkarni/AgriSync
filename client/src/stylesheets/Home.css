@@ -1,10 +1,12 @@
 .bg-14{
-    background-color: #ff4f1f ;
+    background-color: #f08061 ;
     border-radius: 25px;
+    opacity: 90%;
 }
 .bg-23{
-    background-color: #E52D87;
+    background-color: #ef82b6;
     border-radius: 25px;
+    opacity: 90%;
 }
 .btn-light-dark {
     background-color: #79b7f4; /* Light initial color */
@@ -16,4 +18,19 @@
     background-color: #343a40; /* Darker color on hover */
     color: #ffffff; /* Text color on hover */
   }
+
+.bg-my{
+    background-color: #f18295;
+}
+
+.bg-img{
+    background-image: url("../images/background.jpeg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.ChartComponent{
+    width:500px;
+   height:500px;
+}
 
