@@ -9,7 +9,7 @@ import MFELogin from "./pages/MFELogin";
 import MFESignup from "./pages/MFESignup";
 import MFEDashboard from "./pages/MFEDashboard";
 import PACDashboard from "./pages/PACDashboard";
-import PACViewGradedRequests from "./pages/PACViewGradedRequests"
+import PACViewGradedRequests from "./pages/PACViewGradedRequests";
 import FarmerRequestForm from "./pages/FarmerRequestForm";
 import FarmerPrivateRoutes from "./utils/FarmerPrivateRoutes";
 import MFEPrivateRoutes from "./utils/MFEPrivateRoutes";
@@ -20,7 +20,7 @@ import MFEProducts from "./pages/MFEProducts";
 
 function App() {
   return (
-    <div className="App">
+    <div className="App bg-img">
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
