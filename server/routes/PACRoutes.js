@@ -51,7 +51,7 @@ router.post('/login', async (req, res) => {
 router.post('/signup', async (req, res) => {
 
     try {
-        if (!req.body.email || !req.body.password || !req.body.name) {
+        if (!req.body.email || !req.body.password || !req.body.name|| !req.body.district|| !req.body.state) {
             throw Error('All fields must be filled')
         }
 
@@ -70,7 +70,9 @@ router.post('/signup', async (req, res) => {
         const newUser = new User({
             email: req.body.email,
             password: hashp,
-            name: req.body.name
+            name: req.body.name,
+            district:req.body.district,
+            state:req.body.state,
         })
 
         await newUser.save()
