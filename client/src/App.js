@@ -15,6 +15,7 @@ import MFEPrivateRoutes from "./utils/MFEPrivateRoutes";
 import PACPrivateRoutes from "./utils/PACPrivateRoutes";
 import FarmerDashboard from "./pages/FarmerDashboard";
 import Success from "./pages/Success";
+import MFEProducts from "./pages/MFEProducts";
 
 function App() {
   return (
@@ -40,6 +41,7 @@ function App() {
           <Route path="/farmer/dashboard" element={<FarmerDashboard />} />
           <Route path="/success" element={<Success />} />
           <Route path="/mfe/dashboard" element={<MFEDashboard />} />
+          <Route path="/mfe/products" element={<MFEProducts />} />
         </Routes>
       </BrowserRouter>
     </div>
