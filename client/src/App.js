@@ -9,7 +9,7 @@ import MFELogin from "./pages/MFELogin";
 import MFESignup from "./pages/MFESignup";
 import MFEDashboard from "./pages/MFEDashboard";
 import PACDashboard from "./pages/PACDashboard";
-import FarmerDashboard from "./pages/FarmerDashboard";
+import FarmerRequestForm from "./pages/FarmerRequestForm";
 import FarmerPrivateRoutes from "./utils/FarmerPrivateRoutes";
 import MFEPrivateRoutes from "./utils/MFEPrivateRoutes";
 import PACPrivateRoutes from "./utils/PACPrivateRoutes";
@@ -27,7 +27,7 @@ function App() {
           <Route path="/mfe/login" element={<MFELogin />} />
           <Route path="/mfe/signup" element={<MFESignup />} />
           <Route element={<FarmerPrivateRoutes />}>
-            <Route path="/farmer/dashboard" element={<FarmerDashboard />} />
+            <Route path="/farmer/RequestForm" element={<FarmerRequestForm />} />
           </Route>
           <Route element={<MFEPrivateRoutes />}>
             <Route path="/mfe/dashboard" element={<MFEDashboard />} />
