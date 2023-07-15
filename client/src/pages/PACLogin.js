@@ -68,7 +68,7 @@ const PACLogin = () => {
                         style={{ width: 185 }}
                         alt="logo"
                       />
-                      <h4 className="mt-1 mb-5 pb-1">We are The Lotus Team</h4>
+                      <h4 className="mt-1 mb-5 pb-1">PAC Login!!</h4>
                     </div>
                     <form>
                       <p>Please login to your account</p>
