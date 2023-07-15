@@ -86,34 +86,37 @@ router.post('/signup', async (req, res) => {
     }
 })
 
-router.get('/getall', async (req, res) => {
-    try {
-        const district = req.body.district;
-        const requests = await Request.find({ district });
 
-        res.json({ requests });
+router.get('/getall/:id', async (req, res) => {
+    try {
+        const district = req.params.id;
+        const data = await Request.find({ district, graded: false });
+
+        res.json({ success: true, data: data });
 
     } catch (error) {
         res.status(400).json({ error: error.message })
     }
 })
 
-router.get('/getall', async (req, res) => {
+router.get('/getbyid/:id', async (req, res) => {
     try {
-        const district = req.body.district;
-        const requests = await Request.find({ district });
+        const id = req.params.id;
+        const data = await Request.findOne({ _id: id, graded: false })
 
-        res.json({ requests });
+        res.json({ success: true, data: data });
 
     } catch (error) {
         res.status(400).json({ error: error.message })
     }
 })
 
-router.post('/grade', async (req, res) => {
+router.post('/grade/:id', async (req, res) => {
     try {
-        const reqid = req.body.reqid;
+        console.log("hi")
+        const reqid = req.params.id;
         const grade = req.body.grade;
+        console.log(reqid, grade)
         const request = await Request.findOne({ reqid });
         if (!request) {
             return res.status(404).json({ error: 'Request not found' });
@@ -125,7 +128,7 @@ router.post('/grade', async (req, res) => {
         
           // Save the updated request
           await request.save();
-        
+          console.log(request)
           res.json({ success: true, request: request });
 
     } catch (error) {
