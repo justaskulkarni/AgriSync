@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import "../stylesheets/FarmerLogin.css";
 const Login = () => {
   const [credentials, setCredentials] = useState({ email: "", password: "" });
@@ -72,7 +72,7 @@ const Login = () => {
                           We are The Lotus Team
                         </h4>
                       </div>
-                      <form >
+                      <form>
                         <p>Please login to your account</p>
                         <div className="form-outline mb-4">
                           {/* <input
@@ -81,8 +81,15 @@ const Login = () => {
                             className="form-control"
                             placeholder="Phone number or email address"
                           /> */}
-						  <input type="email" value={credentials.email} name="email" onChange={onChange} placeholder="Email" id="form2Example11"
-                            className="form-control"/>
+                          <input
+                            type="email"
+                            value={credentials.email}
+                            name="email"
+                            onChange={onChange}
+                            placeholder="Email"
+                            id="form2Example11"
+                            className="form-control"
+                          />
                           <label
                             className="form-label"
                             htmlFor="form2Example11"
@@ -91,9 +98,15 @@ const Login = () => {
                           </label>
                         </div>
                         <div className="form-outline mb-4">
-                          
-						  <input type="password" value={credentials.password} name="password" onChange={onChange} placeholder="Password" id="form2Example22"
-                            className="form-control"/>
+                          <input
+                            type="password"
+                            value={credentials.password}
+                            name="password"
+                            onChange={onChange}
+                            placeholder="Password"
+                            id="form2Example22"
+                            className="form-control"
+                          />
                           <label
                             className="form-label"
                             htmlFor="form2Example22"
@@ -105,11 +118,10 @@ const Login = () => {
                           <button
                             className="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3"
                             type="button"
-							onClick={handleSubmit}
+                            onClick={handleSubmit}
                           >
                             Log in
                           </button>
-                          
                         </div>
                         <div className="d-flex align-items-center justify-content-center pb-4">
                           <p className="mb-0 me-2">Don't have an account?</p>
@@ -117,7 +129,7 @@ const Login = () => {
                             type="button"
                             className="btn btn-outline-danger"
                           >
-                            Create new
+                            <Link to="/farmer/signup">Create New</Link>
                           </button>
                         </div>
                       </form>
