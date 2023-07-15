@@ -1,9 +1,19 @@
 .bg-14{
-    background-color: #ff4f1f ;
+    background-color: #f08061 ;
     border-radius: 25px;
 }
 .bg-23{
-    background-color: #E52D87;
+    background-color: #ef82b6;
     border-radius: 25px;
+}
+
+.bg-my{
+    background-color: #f18295;
+}
+
+.bg-img{
+    background-image: url("C:\Users\preet\OneDrive\Desktop\lets_endorse\Team-78\client\src\images\background.jpeg");
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
