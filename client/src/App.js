@@ -24,7 +24,7 @@ import CPCSignup from "./pages/CPCSignup";
 
 function App() {
   return (
-    <div className="App bg-img">
+    <div className="App ">
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
