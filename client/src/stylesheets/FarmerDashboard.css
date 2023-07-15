@@ -1,0 +1,20 @@
+.dashboard-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+  
+  .main-content {
+    text-align: center;
+  }
+  
+  .sidebar {
+    min-height: 100vh;
+  }
+  
+  .main-content-with-sidebar {
+    max-width: calc(100% - 16rem); /* Adjust the value if needed */
+    margin-left: 16rem; /* Adjust the value to match the width of the sidebar */
+  }
+  
