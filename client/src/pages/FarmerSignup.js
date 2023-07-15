@@ -29,7 +29,7 @@ const FarmerSignup = () => {
 
     if (json.success) {
       localStorage.setItem("Token", json.authToken);
-      navigate("/farmer/dashboard");
+      navigate("/farmer/requestform");
     }
 
     if (json.error) {
