@@ -15,7 +15,9 @@ app.use(express.json());
 app.use(bodyParser.json());
 
 const userroutes = require("./routes/UserRoutes");
+const requestroutes = require("./routes/RequestRoutes")
 app.use("/api/user/", userroutes);
+app.use("/api/request", requestroutes)
 
 const server = require("http").createServer(app);
 const MYPORT = process.env.PORT || 6100;
