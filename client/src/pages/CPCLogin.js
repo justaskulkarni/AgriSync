@@ -1,7 +1,8 @@
 import React from "react";
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-const MFELogin = () => {
+
+const CPCLogin = () => {
   const [credentials, setCredentials] = useState({ email: "", password: "" });
   const [error, setError] = useState(null);
   let navigate = useNavigate();
@@ -23,7 +24,7 @@ const MFELogin = () => {
 
     if (json.success) {
       localStorage.setItem("Token", json.authToken);
-      navigate("/mfe/dashboard");
+      navigate("/cpc/dashboard");
     }
 
     if (json.error) {
@@ -67,7 +68,7 @@ const MFELogin = () => {
                           style={{ width: 185 }}
                           alt="logo"
                         />
-                        <h4 className="mt-1 mb-5 pb-1">MFE Login!!</h4>
+                        <h4 className="mt-1 mb-5 pb-1">CPC Login!!</h4>
                       </div>
                       <form>
                         <p>Please login to your account</p>
@@ -126,7 +127,7 @@ const MFELogin = () => {
                             type="button"
                             className="btn btn-outline-danger"
                           >
-                            <Link to="/mfe/signup">Create New</Link>
+                            <Link to="/cpc/signup">Create New</Link>
                           </button>
                         </div>
                       </form>
@@ -134,7 +135,7 @@ const MFELogin = () => {
                   </div>
                   <div className="col-lg-6 d-flex align-items-center gradient-custom-2">
                     <div className="text-white px-3 py-4 p-md-5 mx-md-4">
-                      <h4 className="mb-4">MFE</h4>
+                      <h4 className="mb-4">CPC</h4>
                       <p className="small mb-0">
                         Lorem ipsum dolor sit amet, consectetur adipisicing
                         elit, sed do eiusmod tempor incididunt ut labore et
@@ -154,4 +155,4 @@ const MFELogin = () => {
   );
 };
 
-export default MFELogin;
+export default CPCLogin;
