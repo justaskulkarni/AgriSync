@@ -2,6 +2,8 @@ import React from "react";
 import "../stylesheets/Home.css";
 import logo from "../images/logo (2).jpeg";
 
+import { Link } from "react-router-dom";
+
 const Home = () => {
   return (
     <>
@@ -49,14 +51,18 @@ const Home = () => {
               <h1 className="mb-3">Farmer</h1>
               <h4 className="mb-3">A portal for Farmers</h4>
               <a className="btn btn-primary btn-light-dark" href role="button">
-                <h4>Login</h4>
+                <h4>
+                  <Link to="/farmer/login">Login</Link>{" "}
+                </h4>
               </a>
             </div>
             <div className="p-5 pl-md-0 text-left bg-23 col-md-4">
               <h1 className="mb-3">MFE</h1>
               <h4 className="mb-3">A portal for the people working in MFE</h4>
               <a className="btn btn-primary btn-light-dark" href role="button">
-                <h4>Login</h4>
+                <h4>
+                  <Link to="/mfe/login">Login</Link>{" "}
+                </h4>
               </a>
             </div>
           </div>
@@ -71,14 +77,18 @@ const Home = () => {
               <h1 className="mb-3">PAC</h1>
               <h4 className="mb-3">A portal for the people working in PAC</h4>
               <a className="btn btn-primary btn-light-dark" href role="button">
-                <h4>Login</h4>
+                <h4>
+                  <Link to="/pac/login">Login</Link>{" "}
+                </h4>
               </a>
             </div>
             <div className="p-5 pr-md-0 text-left bg-14 col-md-4">
               <h1 className="mb-3">CPC</h1>
               <h4 className="mb-3">A portal for the people working in CPC</h4>
               <a className="btn btn-primary btn-light-dark" href role="button">
-                <h4>Login</h4>
+                <h4>
+                  <Link to="/cpc/login">Login</Link>{" "}
+                </h4>
               </a>
             </div>
           </div>

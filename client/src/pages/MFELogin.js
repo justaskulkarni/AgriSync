@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 const MFELogin = () => {
   const [credentials, setCredentials] = useState({ email: "", password: "" });
   const [error, setError] = useState(null);
@@ -128,7 +128,7 @@ const MFELogin = () => {
                             type="button"
                             className="btn btn-outline-danger"
                           >
-                            Create new
+                            <Link to="/mfe/signup">Create New</Link>
                           </button>
                         </div>
                       </form>
