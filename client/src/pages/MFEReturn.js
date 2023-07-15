@@ -1,11 +1,11 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import MFEGradedCard from "../components/MFEGradedCard";
+import MFEReturnCard from "../components/MFEReturnCard";
 import { Container, Row, Col, Nav } from "react-bootstrap";
 import styles from "../stylesheets/pacdashboard.module.css";
 import { useNavigate, navigate } from "react-router-dom";
 
-function MFEDashboard() {
+function MFEReturn() {
   const [showSidebar, setShowSidebar] = useState(true);
   
   let navigate = useNavigate();
@@ -21,7 +21,7 @@ function MFEDashboard() {
     
 	const getdata = async () => {
         
-        const response = await fetch("http://localhost:6100/api/pac/getallgraded/Thane", {
+        const response = await fetch("http://localhost:6100/api/mfe/getalltaken", {
             method: "GET",
 			headers: { "Content-Type": "application/json" },
             
@@ -43,8 +43,9 @@ function MFEDashboard() {
       <div className={styles.column + " " + styles.left}>
         <div className={styles.smallcardleft}>
           <button className={styles.leftbutton}>
-            <span className={styles.notifications}>View all inhouse products</span>
+            <span className={styles.notifications}>View Graded PAC Products</span>
           </button>
+          
         </div>
         {localStorage.getItem("Token") && (
           <button className={styles.logoutbtn} onClick={handleLogout}>
@@ -54,14 +55,14 @@ function MFEDashboard() {
       </div>
       <div className={styles.column + " " + styles.middle}>
         <div className={styles.leftbox}>
-          <span className={styles.analytics}>All products</span>
+          <span className={styles.analytics}>Products at MFE</span>
           <span className={styles.welcometext}>Request products</span>
         </div>
 
-        <span className={styles.mentorrequests2}>All graded products: </span>
+        <span className={styles.mentorrequests2}>All products at your center: </span>
         <div className={styles.cardcontainer}>
           {idArray.map((id) => (
-            <MFEGradedCard key={id} mentid={id} />
+            <MFEReturnCard key={id} mentid={id} />
           ))}
         </div>
       </div>
@@ -69,4 +70,4 @@ function MFEDashboard() {
   );
 }
 
-export default MFEDashboard;
+export default MFEReturn;

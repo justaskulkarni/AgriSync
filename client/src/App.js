@@ -18,7 +18,9 @@ import FarmerDashboard from "./pages/FarmerDashboard";
 import Success from "./pages/Success";
 import ChartComponent from "./pages/ChartComponent";
 import MFEProducts from "./pages/MFEProducts";
+import MFEReturn from "./pages/MFEReturn";
 import CPCLogin from "./pages/CPCLogin";
+import Feedback from "./pages/Feedback";
 
 import CPCSignup from "./pages/CPCSignup";
 
@@ -54,6 +56,11 @@ function App() {
           <Route path="/success" element={<Success />} />
           <Route path="/mfe/dashboard" element={<MFEDashboard />} />
           <Route path="/mfe/products" element={<MFEProducts />} />
+
+          <Route path="/feedback" element={<Feedback/>} />
+
+          <Route path="/mfe/return" element={<MFEReturn />} />
+
         </Routes>
       </BrowserRouter>
     </div>

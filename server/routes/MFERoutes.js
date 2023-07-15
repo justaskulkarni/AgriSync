@@ -5,7 +5,7 @@ if (process.env.NODE_ENV !== "production") {
 const express = require('express');
 
 const MFE = require('../models/MFE')
-
+const Request = require('../models/request')
 const bcrypt = require('bcrypt')
 const validator = require('validator')
 const jwt = require('jsonwebtoken');
@@ -80,6 +80,85 @@ router.post('/signup', async (req, res) => {
 
         const token = createToken(newUser._id, "MFE")
         res.json({ success: true, authToken: token })
+
+    } catch (error) {
+        res.status(400).json({ error: error.message })
+    }
+})
+
+router.get('/getallgraded/:id', async (req, res) => {
+    try {
+        const district = req.params.id;
+        const data = await Request.find({ district, graded: true });
+
+        res.json({ success: true, data: data }); 
+        
+
+    } catch (error) {
+        res.status(400).json({ error: error.message })
+    }
+})
+
+router.get('/getalltaken', async (req, res) => {
+    try {
+        const data = await Request.find({ mfetaken: true });
+
+        res.json({ success: true, data: data }); 
+        
+
+    } catch (error) {
+        res.status(400).json({ error: error.message })
+    }
+})
+
+router.get('/getbyid/:id', async (req, res) => {
+    try {
+        const id = req.params.id;
+        const data = await Request.findById(id)
+
+        res.json({ success: true, data: data });
+
+    } catch (error) {
+        res.status(400).json({ error: error.message })
+    }
+})
+
+router.get('/getbyidnew/:id', async (req, res) => {
+    try {
+        const id = req.params.id;
+        const data = await Request.findOne({_id: id, mfetaken: false})
+
+        res.json({ success: true, data: data });
+
+    } catch (error) {
+        res.status(400).json({ error: error.message })
+    }
+})
+
+router.get('/request/:id', async (req, res) => {
+    try {
+        const id = req.params.id;
+        const data = await Request.findById(id)
+        data.mfetaken = true;
+        data.status = "Taken";
+        await data.save();
+        console.log(data)
+        res.json({ success: true, data: data });
+
+    } catch (error) {
+        res.status(400).json({ error: error.message })
+    }
+})
+
+router.get('/return/:id', async (req, res) => {
+    try {
+        const id = req.params.id;
+        const data = await Request.findById(id)
+        data.mfetaken = true;
+        data.status = "Returned";
+        await data.save();
+        console.log(data)
+        res.json({ success: true, data: data });
 
     } catch (error) {
         res.status(400).json({ error: error.message })
