@@ -68,9 +68,7 @@ const Login = () => {
                           style={{ width: 185 }}
                           alt="logo"
                         />
-                        <h4 className="mt-1 mb-5 pb-1">
-                          We are The Lotus Team
-                        </h4>
+                        <h4 className="mt-1 mb-5 pb-1">Farmer Login!!</h4>
                       </div>
                       <form>
                         <p>Please login to your account</p>
@@ -137,7 +135,7 @@ const Login = () => {
                   </div>
                   <div className="col-lg-6 d-flex align-items-center gradient-custom-2">
                     <div className="text-white px-3 py-4 p-md-5 mx-md-4">
-                      <h4 className="mb-4">We are more than just a company</h4>
+                      <h4 className="mb-4">Farmer</h4>
                       <p className="small mb-0">
                         Lorem ipsum dolor sit amet, consectetur adipisicing
                         elit, sed do eiusmod tempor incididunt ut labore et
