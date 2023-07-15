@@ -42,7 +42,7 @@ const Home = () => {
         </div>
       </nav>
       {/* Hero */}
-      <div className="bg-img">
+      <div>
         <div className="container">
           <div className="row d-flex justify-content-between my-5">
             <div className="p-5 pr-md-0 text-left bg-14 col-md-4">
