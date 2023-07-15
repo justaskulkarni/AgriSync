@@ -4,7 +4,7 @@ if (process.env.NODE_ENV !== "production") {
 
 const express = require('express');
 
-const MFE = require('../models/mfe')
+const MFE = require('../models/MFE')
 
 const bcrypt = require('bcrypt')
 const validator = require('validator')
