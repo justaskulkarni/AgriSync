@@ -15,6 +15,7 @@ import MFEPrivateRoutes from "./utils/MFEPrivateRoutes";
 import PACPrivateRoutes from "./utils/PACPrivateRoutes";
 import FarmerDashboard from "./pages/FarmerDashboard";
 import Success from "./pages/Success";
+import MFEProducts from "./pages/MFEProducts";
 
 function App() {
   return (
@@ -31,14 +32,16 @@ function App() {
           <Route element={<FarmerPrivateRoutes />}>
             <Route path="/farmer/requestform" element={<FarmerRequestForm />} />
           </Route>
-          <Route element={<MFEPrivateRoutes />}>
+          {/* <Route element={<MFEPrivateRoutes />}>
             <Route path="/mfe/dashboard" element={<MFEDashboard />} />
-          </Route>
+          </Route> */}
           <Route element={<PACPrivateRoutes />}>
             <Route path="/pac/dashboard" element={<PACDashboard />} />
           </Route>
           <Route path="/farmer/dashboard" element={<FarmerDashboard />} />
           <Route path="/success" element={<Success />} />
+          <Route path="/mfe/dashboard" element={<MFEDashboard />} />
+          <Route path="/mfe/products" element={<MFEProducts />} />
         </Routes>
       </BrowserRouter>
     </div>
