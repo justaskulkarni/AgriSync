@@ -24,7 +24,7 @@ function MFEProducts() {
                   className="bg-image hover-zoom ripple ripple-surface ripple-surface-light"
                   data-mdb-ripple-color="light"
                 >
-                  <img src={img2} className="w-100" />
+                  <img src={img2} className="card-img-top" />
                   <a href="#!">
                     <div className="mask">
                       <div className="d-flex justify-content-start align-items-end h-100">
@@ -58,7 +58,7 @@ function MFEProducts() {
                   className="bg-image hover-zoom ripple ripple-surface ripple-surface-light"
                   data-mdb-ripple-color="light"
                 >
-                  <img src={img1} className="w-100" />
+                  <img src={img1} className="card-img-top" />
                   <a href="#!">
                     <div className="mask">
                       <div className="d-flex justify-content-start align-items-end h-100">
@@ -92,7 +92,7 @@ function MFEProducts() {
                   className="bg-image hover-zoom ripple"
                   data-mdb-ripple-color="light"
                 >
-                  <img src={img3} className="w-100" />
+                  <img src={img3} className="card-img-top" />
                   <a href="#!">
                     <div className="mask">
                       <div className="d-flex justify-content-start align-items-end h-100">
@@ -131,7 +131,7 @@ function MFEProducts() {
                   className="bg-image hover-zoom ripple"
                   data-mdb-ripple-color="light"
                 >
-                  <img src={img4} className="w-100" />
+                  <img src={img4} className="card-img-top" />
                   <a href="#!">
                     <div className="mask">
                       <div className="d-flex justify-content-start align-items-end h-100">
@@ -169,7 +169,7 @@ function MFEProducts() {
                   className="bg-image hover-zoom ripple ripple-surface ripple-surface-light"
                   data-mdb-ripple-color="light"
                 >
-                  <img src={img5} className="w-100" />
+                  <img src={img5} className="card-img-top" />
                   <a href="#!">
                     <div className="mask">
                       <div className="d-flex justify-content-start align-items-end h-100" />
@@ -199,7 +199,7 @@ function MFEProducts() {
                   className="bg-image hover-zoom ripple"
                   data-mdb-ripple-color="light"
                 >
-                  <img src={img6} className="w-100" />
+                  <img src={img6} className="card-img-top" />
                   <a href="#!">
                     <div className="mask">
                       <div className="d-flex justify-content-start align-items-end h-100">
