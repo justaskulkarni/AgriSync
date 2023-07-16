@@ -28,7 +28,9 @@ const CPCDataAnalytics = () => (
       </div>
       <div className='d-flex justify-content-between'>
       <ChartComponent />
+      <div>
     <ChartComponentnew/>
+    </div>
     <ChartCompEmployee/>
       </div>
   

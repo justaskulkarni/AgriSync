@@ -5,7 +5,7 @@ import { Pie } from "react-chartjs-2";
 function PieChart({ chartData }) {
   return (
     <div className="chart-container">
-      <h2 style={{ textAlign: "center" }}>GRADATION</h2>
+      <h2 style={{ textAlign: "center" }}>EMPLOYEES</h2>
       <Pie
         data={chartData}
         options={{
