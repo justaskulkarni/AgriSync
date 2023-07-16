@@ -175,11 +175,14 @@ const MFESignup = () => {
                       <div className="text-white px-3 py-4 p-md-5 mx-md-4">
                         <h4 className="mb-4">MFE</h4>
                         <p className="small mb-0">
-                          Lorem ipsum dolor sit amet, consectetur adipisicing
-                          elit, sed do eiusmod tempor incididunt ut labore et
-                          dolore magna aliqua. Ut enim ad minim veniam, quis
-                          nostrud exercitation ullamco laboris nisi ut aliquip
-                          ex ea commodo consequat.
+                          The Micro Food Processing Mills Portal is your
+                          all-in-one solution for small-scale food processors
+                          and entrepreneurs. Access valuable resources, business
+                          development support, and stay up to date with the
+                          latest technology and regulations. Connect with
+                          experts, find funding options, and enhance your skills
+                          through training programs. Join today and empower your
+                          micro food processing business for success.
                         </p>
                       </div>
                     </div>
