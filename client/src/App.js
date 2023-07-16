@@ -23,8 +23,13 @@ import CPCLogin from "./pages/CPCLogin";
 import Feedback from "./pages/Feedback";
 
 import CPCSignup from "./pages/CPCSignup";
+
+import CPCDataAnalytics from "./pages/CPCDataAnalytics";
+import ChartComponentnew from "./pages/Chartcomponentnew"
+
 import Navbar from "./components/Navbar";
 import Footer from "./pages/Footer";
+
 
 function App() {
   return (
@@ -42,10 +47,13 @@ function App() {
             <Route path="/mfe/login" element={<MFELogin />} />
             <Route path="/mfe/signup" element={<MFESignup />} />
 
+          <Route path="/cpc/login" element={<CPCLogin />} />
+          <Route path="/cpc/signup" element={<CPCSignup />} />
+
             <Route path="/chart" element={<ChartComponent />} />
 
-            <Route path="/cpc/login" element={<CPCLogin />} />
-            <Route path="/cpc/signup" element={<CPCSignup />} />
+
+
 
             <Route element={<FarmerPrivateRoutes />}>
               <Route
@@ -71,8 +79,13 @@ function App() {
 
             <Route path="/feedback" element={<Feedback />} />
 
+
+          <Route path="/mfe/return" element={<MFEReturn />} />
+          <Route path="/dataanalysis" element={<CPCDataAnalytics/>}/>
+
             <Route path="/mfe/return" element={<MFEReturn />} />
           </Routes>
+
 
           <Footer />
         </div>
