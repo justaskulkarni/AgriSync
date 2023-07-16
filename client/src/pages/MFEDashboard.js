@@ -20,6 +20,9 @@ function MFEDashboard() {
   };
   const [idArray, setIdArray] = useState([]);
   const handleClick = () => {
+    navigate("/mfe/products");
+  };
+  const handleClick2 = () => {
     navigate("/mfe/return");
   };
   const getdata = async () => {
@@ -41,15 +44,21 @@ function MFEDashboard() {
   useEffect(() => {
     getdata();
   }, [idArray]);
+  
 
   return (
     <>
       <div className="dashy">
         <div className={styles.column + " " + styles.left}>
           <div className={styles.smallcardleft}>
-            <button className={styles.leftbutton}>
+            <button className={styles.leftbutton} onClick={handleClick}>
               <span className={styles.notifications}>
                 View all inhouse products
+              </span>
+            </button>
+            <button className={styles.leftbutton} onClick={handleClick2}>
+              <span className={styles.notifications}>
+                Products being processed
               </span>
             </button>
           </div>

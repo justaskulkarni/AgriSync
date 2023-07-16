@@ -35,15 +35,18 @@ function MFEReturn() {
   useEffect(() => {
     getdata();
   }, [idArray]);
+  const handleClick = () => {
+    navigate("/mfe/products");
+  };
 
   return (
     <>
       <div className="dashy">
         <div className={styles.column + " " + styles.left}>
           <div className={styles.smallcardleft}>
-            <button className={styles.leftbutton}>
+            <button className={styles.leftbutton} onClick={handleClick}>
               <span className={styles.notifications}>
-                View Graded PAC Products
+                View inhouse Products
               </span>
             </button>
           </div>

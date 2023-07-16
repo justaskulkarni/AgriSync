@@ -28,7 +28,7 @@ const CPCDashboard = () => {
     navigate("/");
   };
   const handleClick = () => {
-    navigate("/cpc/dashboard");
+    navigate("/dataanalysis");
   };
 
   return (
@@ -36,7 +36,7 @@ const CPCDashboard = () => {
       <div className="dashy">
         <div className={styles.column + " " + styles.left}>
           <button className={styles.leftbutton} onClick={handleClick}>
-            <span className={styles.notifications}>Requests sent to state</span>
+            <span className={styles.notifications}>View Analysis</span>
           </button>
           {localStorage.getItem("Token") && (
             <button className={styles.logoutbtn} onClick={handleLogout}>

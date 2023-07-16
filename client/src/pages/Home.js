@@ -41,7 +41,7 @@ const Home = () => {
                     role="button"
                   >
                     <h4>
-                      <Link to="/mfe/login">Login</Link>{" "}
+                      <Link to="/mfe/dashboard">Login</Link>{" "}
                     </h4>
                   </a>
                 </div>
@@ -66,7 +66,7 @@ const Home = () => {
                     role="button"
                   >
                     <h4>
-                      <Link to="/pac/login">Login</Link>{" "}
+                      <Link to="/pac/dashboard">Login</Link>{" "}
                     </h4>
                   </a>
                 </div>
@@ -83,7 +83,7 @@ const Home = () => {
                     role="button"
                   >
                     <h4>
-                      <Link to="/cpc/login">Login</Link>{" "}
+                      <Link to="/cpc/dashboard">Login</Link>{" "}
                     </h4>
                   </a>
                 </div>

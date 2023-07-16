@@ -9,7 +9,7 @@ function Navbar() {
           <a className="navbar-brand" href="#">
             <div className="d-flex">
               <img src={logo} alt="..." height={36} />{" "}
-              <p className="mx-3 my-1 fw-bold">Let's Endorse</p>
+              <a className="mx-3 my-1 fw-bold text-dark" href="/">Let's Endorse</a>
             </div>
           </a>
           <button

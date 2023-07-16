@@ -58,7 +58,7 @@ function Footer() {
                   </h6>
                   <p>
                     <i className="fas fa-home mr-3" />{" "}
-                    <Link to="/feedback">FeedBack</Link>
+                    <a className="mx-3 my-1 fw-bold text-dark" href="/feedback">Feedback</a>
                   </p>
                   <p>
                     <i className="fas fa-envelope mr-3" /> letsendorse@gmail.com

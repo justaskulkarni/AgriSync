@@ -61,14 +61,9 @@ const PACDashboard = () => {
           )}
         </div>
         <div className={styles.column + " " + styles.middle}>
-          <div className={styles.leftbox}>
-            <span className={styles.analytics}>All request</span>
-            <span className={styles.welcometext}>
-              Receive and grade requests
-            </span>
-          </div>
+          
 
-          <span className={styles.mentorrequests2}>All requests : </span>
+          
           <div className={styles.cardcontainer}>
             {idArray.map((id) => (
               <Card key={id} mentid={id} />
