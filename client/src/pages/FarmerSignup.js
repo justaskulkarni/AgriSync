@@ -78,12 +78,6 @@ const FarmerSignup = () => {
                               placeholder="Name"
                               className="form-control"
                             />
-                            <label
-                              className="form-label"
-                              htmlFor="form2Example11"
-                            >
-                              Name
-                            </label>
                           </div>
 
                           <div className="form-outline mb-4">
@@ -95,17 +89,9 @@ const FarmerSignup = () => {
                               placeholder="Email id"
                               className="form-control"
                             />
-                            <label
-                              className="form-label"
-                              htmlFor="form2Example11"
-                            >
-                              Email
-                            </label>
                           </div>
 
                           <div className="form-outline mb-4">
-                            <p>SET UP A PASSWORD</p>
-
                             <input
                               type="password"
                               value={credentials.password}
@@ -114,12 +100,6 @@ const FarmerSignup = () => {
                               placeholder="Password"
                               className="form-control"
                             />
-                            <label
-                              className="form-label"
-                              htmlFor="form2Example22"
-                            >
-                              Password
-                            </label>
                           </div>
 
                           <div className="text-center pt-1 mb-5 pb-1">

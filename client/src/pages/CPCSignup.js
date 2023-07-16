@@ -72,13 +72,13 @@ const CPCSignup = () => {
           className="h-100 gradient-form"
           style={{ backgroundColor: "#eee" }}
         >
-          <div className="container py-5 h-100">
+          <div className="container h-100">
             <div className="row d-flex justify-content-center align-items-center h-100">
               <div className="col-xl-10">
                 <div className="card rounded-3 text-black">
                   <div className="row g-0">
                     <div className="col-lg-6">
-                      <div className="card-body p-md-5 mx-md-4">
+                      <div className="mx-md-4">
                         <div className="text-center">
                           <img
                             src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/lotus.webp"
@@ -99,12 +99,6 @@ const CPCSignup = () => {
                               placeholder="District"
                               className="form-control"
                             />
-                            <label
-                              className="form-label"
-                              htmlFor="form2Example11"
-                            >
-                              District
-                            </label>
                           </div>
 
                           <div className="form-outline mb-4">
@@ -116,12 +110,6 @@ const CPCSignup = () => {
                               placeholder="State"
                               className="form-control"
                             />
-                            <label
-                              className="form-label"
-                              htmlFor="form2Example11"
-                            >
-                              State
-                            </label>
                           </div>
 
                           <div className="form-outline mb-4">
@@ -133,12 +121,6 @@ const CPCSignup = () => {
                               placeholder="Email id"
                               className="form-control"
                             />
-                            <label
-                              className="form-label"
-                              htmlFor="form2Example11"
-                            >
-                              Email
-                            </label>
                           </div>
 
                           <div className="form-outline mb-4">
@@ -152,12 +134,6 @@ const CPCSignup = () => {
                               placeholder="Password"
                               className="form-control"
                             />
-                            <label
-                              className="form-label"
-                              htmlFor="form2Example22"
-                            >
-                              Password
-                            </label>
                           </div>
 
                           <div className="text-center pt-1 mb-5 pb-1">

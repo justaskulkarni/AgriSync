@@ -87,12 +87,6 @@ const MFELogin = () => {
                             id="form2Example11"
                             className="form-control"
                           />
-                          <label
-                            className="form-label"
-                            htmlFor="form2Example11"
-                          >
-                            Email
-                          </label>
                         </div>
                         <div className="form-outline mb-4">
                           <input
@@ -104,12 +98,6 @@ const MFELogin = () => {
                             id="form2Example22"
                             className="form-control"
                           />
-                          <label
-                            className="form-label"
-                            htmlFor="form2Example22"
-                          >
-                            Password
-                          </label>
                         </div>
                         <div className="text-center pt-1 mb-5 pb-1">
                           <button
@@ -118,15 +106,6 @@ const MFELogin = () => {
                             onClick={handleSubmit}
                           >
                             Log in
-                          </button>
-                        </div>
-                        <div className="d-flex align-items-center justify-content-center pb-4">
-                          <p className="mb-0 me-2">Don't have an account?</p>
-                          <button
-                            type="button"
-                            className="btn btn-outline-danger"
-                          >
-                            <Link to="/mfe/signup">Create New</Link>
                           </button>
                         </div>
                       </form>
