@@ -165,4 +165,16 @@ router.get('/return/:id', async (req, res) => {
     }
 })
 
+router.get('/all', async (req, res) => {
+    try {
+        const data = await Request.find();
+
+        res.json({ success: true, data: data }); 
+        
+
+    } catch (error) {
+        res.status(400).json({ error: error.message })
+    }
+})
+
 module.exports = router;

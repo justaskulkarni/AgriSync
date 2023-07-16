@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-
+import "../src/stylesheets/Home.css";
 import Home from "./pages/Home";
 import FarmerLogin from "./pages/FarmerLogin";
 import FarmerSignup from "./pages/FarmerSignup";
@@ -23,46 +23,72 @@ import CPCLogin from "./pages/CPCLogin";
 import Feedback from "./pages/Feedback";
 
 import CPCSignup from "./pages/CPCSignup";
+
 import CPCDataAnalytics from "./pages/CPCDataAnalytics";
 import ChartComponentnew from "./pages/Chartcomponentnew"
 
+import Navbar from "./components/Navbar";
+import Footer from "./pages/Footer";
+
+
 function App() {
   return (
-    <div className="App ">
+    <div className="App">
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/farmer/login" element={<FarmerLogin />} />
-          <Route path="/farmer/signup" element={<FarmerSignup />} />
-          <Route path="/pac/login" element={<PACLogin />} />
-          <Route path="/pac/signup" element={<PACSignup />} />
-          <Route path="/mfe/login" element={<MFELogin />} />
-          <Route path="/mfe/signup" element={<MFESignup />} />
+        <div className="bg-img">
+          <Navbar />
+
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/farmer/login" element={<FarmerLogin />} />
+            <Route path="/farmer/signup" element={<FarmerSignup />} />
+            <Route path="/pac/login" element={<PACLogin />} />
+            <Route path="/pac/signup" element={<PACSignup />} />
+            <Route path="/mfe/login" element={<MFELogin />} />
+            <Route path="/mfe/signup" element={<MFESignup />} />
 
           <Route path="/cpc/login" element={<CPCLogin />} />
           <Route path="/cpc/signup" element={<CPCSignup />} />
 
-          <Route element={<FarmerPrivateRoutes />}>
-            <Route path="/farmer/requestform" element={<FarmerRequestForm />} />
-          </Route>
-          {/* <Route element={<MFEPrivateRoutes />}>
+            <Route path="/chart" element={<ChartComponent />} />
+
+
+
+
+            <Route element={<FarmerPrivateRoutes />}>
+              <Route
+                path="/farmer/requestform"
+                element={<FarmerRequestForm />}
+              />
+            </Route>
+            {/* <Route element={<MFEPrivateRoutes />}>
             <Route path="/mfe/dashboard" element={<MFEDashboard />} />
           </Route> */}
-          <Route element={<PACPrivateRoutes />}>
+            <Route element={<PACPrivateRoutes />}>
+              {/* <Route path="/pac/dashboard" element={<PACDashboard />} /> */}
+              <Route
+                path="/pac/viewgraded"
+                element={<PACViewGradedRequests />}
+              />
+            </Route>
+            <Route path="/farmer/dashboard" element={<FarmerDashboard />} />
+            <Route path="/success" element={<Success />} />
+            <Route path="/mfe/dashboard" element={<MFEDashboard />} />
+            <Route path="/mfe/products" element={<MFEProducts />} />
             <Route path="/pac/dashboard" element={<PACDashboard />} />
-            <Route path="/pac/viewgraded" element={<PACViewGradedRequests />} />
-          </Route>
-          <Route path="/farmer/dashboard" element={<FarmerDashboard />} />
-          <Route path="/success" element={<Success />} />
-          <Route path="/mfe/dashboard" element={<MFEDashboard />} />
-          <Route path="/mfe/products" element={<MFEProducts />} />
 
-          <Route path="/feedback" element={<Feedback/>} />
+            <Route path="/feedback" element={<Feedback />} />
+
 
           <Route path="/mfe/return" element={<MFEReturn />} />
           <Route path="/dataanalysis" element={<CPCDataAnalytics/>}/>
 
-        </Routes>
+            <Route path="/mfe/return" element={<MFEReturn />} />
+          </Routes>
+
+
+          <Footer />
+        </div>
       </BrowserRouter>
     </div>
   );
