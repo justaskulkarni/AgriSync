@@ -6,7 +6,9 @@ import { useNavigate } from "react-router-dom";
 const PACDashboard = () => {
   let navigate = useNavigate();
   const [idArray, setIdArray] = useState([]);
-
+  const handleClick = () => {
+    navigate("/pac/viewgraded");
+  };
   const getdata = async () => {
     const response = await fetch("http://localhost:6100/api/pac/getall/Thane", {
       method: "GET",
@@ -37,7 +39,7 @@ const PACDashboard = () => {
               <span className={styles.notifications}>Grade requests</span>
             </button>
             <button className={styles.leftbutton}>
-              <span className={styles.notifications}>At PAC</span>
+              <span className={styles.notifications} onClick={handleClick}>At PAC</span>
             </button>
             <button className={styles.leftbutton}>
               <span className={styles.notifications}>At MFE</span>

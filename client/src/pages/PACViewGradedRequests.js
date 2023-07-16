@@ -29,12 +29,14 @@ const PACDashboard = () => {
         localStorage.removeItem("Token");
         navigate("/");
     };
-
+    const handleClick = () => {
+        navigate("/pac/dashboard");
+      };
     return (
         <>
             <div className={styles.column + " " + styles.left}>
                 <div className={styles.smallcardleft}>
-                    <button className={styles.leftbutton} ><span className={styles.notifications}>Grade requests</span></button>
+                    <button className={styles.leftbutton} ><span className={styles.notifications} onClick={handleClick}>Grade requests</span></button>
                     <button className={styles.leftbutton} ><span className={styles.notifications}>At PAC</span></button>
                     <button className={styles.leftbutton} ><span className={styles.notifications}>At MFE</span></button>
                     <button className={styles.leftbutton} ><span className={styles.notifications}>Returned by MFE</span></button>

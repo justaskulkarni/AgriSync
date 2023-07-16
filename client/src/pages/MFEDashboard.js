@@ -19,7 +19,9 @@ function MFEDashboard() {
     navigate("/");
   };
   const [idArray, setIdArray] = useState([]);
-
+  const handleClick = () => {
+    navigate("/mfe/return");
+  };
   const getdata = async () => {
     const response = await fetch(
       "http://localhost:6100/api/pac/getallgraded/Thane",

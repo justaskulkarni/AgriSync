@@ -26,7 +26,8 @@ import CPCSignup from "./pages/CPCSignup";
 
 import CPCDataAnalytics from "./pages/CPCDataAnalytics";
 import ChartComponentnew from "./pages/Chartcomponentnew"
-
+import CPCDashboard from "./pages/CPCDashboard";
+import CPCSentToState from "./pages/CPCSentToState"
 import Navbar from "./components/Navbar";
 import Footer from "./pages/Footer";
 
@@ -46,7 +47,8 @@ function App() {
             <Route path="/pac/signup" element={<PACSignup />} />
             <Route path="/mfe/login" element={<MFELogin />} />
             <Route path="/mfe/signup" element={<MFESignup />} />
-
+            <Route path="/cpc/dashboard" element={<CPCDashboard />} />
+            <Route path="/cpc/view" element={<CPCSentToState />} />
           <Route path="/cpc/login" element={<CPCLogin />} />
           <Route path="/cpc/signup" element={<CPCSignup />} />
 
@@ -66,11 +68,11 @@ function App() {
           </Route> */}
             <Route element={<PACPrivateRoutes />}>
               {/* <Route path="/pac/dashboard" element={<PACDashboard />} /> */}
+            </Route>
               <Route
                 path="/pac/viewgraded"
                 element={<PACViewGradedRequests />}
               />
-            </Route>
             <Route path="/farmer/dashboard" element={<FarmerDashboard />} />
             <Route path="/success" element={<Success />} />
             <Route path="/mfe/dashboard" element={<MFEDashboard />} />
