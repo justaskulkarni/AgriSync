@@ -2,12 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import ChartComponent from './ChartComponent';
 import ChartComponentnew from './Chartcomponentnew'
+import ChartCompEmployee from './ChartCompEmployee';
 const CPCDataAnalytics = () => (
-  <div className="container bg">
+  <div className="container ">
     <div className="row">
       {[
         { cardNumber: 1, text: 'GRADATION' },
-        { cardNumber: 2, text: 'PRODUCTION' },
+        { cardNumber: 2, text: 'PRODUCTS' },
         { cardNumber: 3, text: 'EMPLOYEES'},
       ].map(({ cardNumber, text, chartRoute }) => (
         <div
@@ -28,6 +29,7 @@ const CPCDataAnalytics = () => (
       <div className='d-flex justify-content-between'>
       <ChartComponent />
     <ChartComponentnew/>
+    <ChartCompEmployee/>
       </div>
   
   </div>
