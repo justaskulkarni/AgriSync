@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Footer() {
   return (
@@ -19,12 +20,11 @@ function Footer() {
                 {/* Grid column */}
                 <div className="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
                   <h6 className="text-uppercase mb-4 font-weight-bold">
-                    Company name
+                    Let's Endorse
                   </h6>
                   <p>
-                    Here you can use rows and columns to organize your footer
-                    content. Lorem ipsum dolor sit amet, consectetur adipisicing
-                    elit.
+                    We are solving for livelihoods at scale by building a mass
+                    and rapid micro-entrepreneurship movement
                   </p>
                 </div>
                 {/* Grid column */}
@@ -32,19 +32,19 @@ function Footer() {
                 {/* Grid column */}
                 <div className="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
                   <h6 className="text-uppercase mb-4 font-weight-bold">
-                    Products
+                    Services
                   </h6>
                   <p>
-                    <a className="text-white">MDBootstrap</a>
+                    <a className="text-white">UDITI</a>
                   </p>
                   <p>
-                    <a className="text-white">MDWordPress</a>
+                    <a className="text-white">SWAYAM</a>
                   </p>
                   <p>
-                    <a className="text-white">BrandFlow</a>
+                    <a className="text-white">SAHAJ</a>
                   </p>
                   <p>
-                    <a className="text-white">Bootstrap Angular</a>
+                    <a className="text-white">CSREDGE</a>
                   </p>
                 </div>
                 {/* Grid column */}
@@ -57,16 +57,17 @@ function Footer() {
                     Contact
                   </h6>
                   <p>
-                    <i className="fas fa-home mr-3" /> New York, NY 10012, US
+                    <i className="fas fa-home mr-3" />{" "}
+                    <Link to="/feedback">FeedBack</Link>
                   </p>
                   <p>
-                    <i className="fas fa-envelope mr-3" /> info@gmail.com
+                    <i className="fas fa-envelope mr-3" /> letsendorse@gmail.com
                   </p>
                   <p>
-                    <i className="fas fa-phone mr-3" /> + 01 234 567 88
+                    <i className="fas fa-phone mr-3" /> + 9983943983
                   </p>
                   <p>
-                    <i className="fas fa-print mr-3" /> + 01 234 567 89
+                    <i className="fas fa-print mr-3" /> + 7292759374
                   </p>
                 </div>
                 {/* Grid column */}
@@ -141,9 +142,9 @@ function Footer() {
             className="text-center p-3"
             style={{ backgroundColor: "rgba(0, 0, 0, 0.2)" }}
           >
-            © 2020 Copyright:
+            © 2023 Copyright:
             <a className="text-white" href="https://mdbootstrap.com/">
-              MDBootstrap.com
+              LetsEndorse.com
             </a>
           </div>
           {/* Copyright */}

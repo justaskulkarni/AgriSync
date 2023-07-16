@@ -176,11 +176,18 @@ const CPCSignup = () => {
                       <div className="text-white px-3 py-4 p-md-5 mx-md-4">
                         <h4 className="mb-4">CPC</h4>
                         <p className="small mb-0">
-                          Lorem ipsum dolor sit amet, consectetur adipisicing
-                          elit, sed do eiusmod tempor incididunt ut labore et
-                          dolore magna aliqua. Ut enim ad minim veniam, quis
-                          nostrud exercitation ullamco laboris nisi ut aliquip
-                          ex ea commodo consequat.
+                          The CPC Portal is an advanced online platform for
+                          farmers seeking efficient and precise crop protection
+                          strategies. With real-time monitoring, integrated pest
+                          management tools, and a weather-based advisory system,
+                          farmers can safeguard their crops effectively. Benefit
+                          from data-driven decision support, access to a
+                          comprehensive crop protection products database, and a
+                          collaborative community for knowledge sharing.
+                          Experience the convenience of mobile accessibility and
+                          take control of crop protection with confidence. Join
+                          the CPC Portal and optimize your farm's productivity
+                          with precision.
                         </p>
                       </div>
                     </div>
