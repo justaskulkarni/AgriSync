@@ -3,6 +3,7 @@ import Card from "../components/Card";
 import { useEffect } from "react";
 import styles from "../stylesheets/pacdashboard.module.css";
 import { useNavigate } from "react-router-dom";
+import "../stylesheets/Home.css";
 const PACDashboard = () => {
   let navigate = useNavigate();
   const [idArray, setIdArray] = useState([]);
@@ -39,7 +40,9 @@ const PACDashboard = () => {
               <span className={styles.notifications}>Grade requests</span>
             </button>
             <button className={styles.leftbutton}>
-              <span className={styles.notifications} onClick={handleClick}>At PAC</span>
+              <span className={styles.notifications} onClick={handleClick}>
+                At PAC
+              </span>
             </button>
             <button className={styles.leftbutton}>
               <span className={styles.notifications}>At MFE</span>
