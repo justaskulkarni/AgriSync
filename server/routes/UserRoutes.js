@@ -49,30 +49,20 @@ router.post('/login', async (req, res) => {
 })
 
 router.post('/signup', async (req, res) => {
-
     try {
-        if (!req.body.email || !req.body.password || !req.body.name) {
-            throw Error('All fields must be filled')
-        }
-
-        if (!validator.isEmail(req.body.email)) {
-            throw Error('Enter a valid number')
-        }
-
-        if (!validator.isStrongPassword(req.body.password,{minLength : 8, minUppercase : 0, minSymbols:0})) {
-            throw Error('Password not strong enough')
-        }
-
+        
+        
+        console.log("hi1")
         const salt = await bcrypt.genSalt(12)
         pass = req.body.password
         const hashp = await bcrypt.hash(pass, salt);
-
+        console.log("hi2")
         const newUser = new User({
             email: req.body.email,
             password: hashp,
             name: req.body.name
         })
-
+        console.log("hi3")
         await newUser.save()
 
         const token = createToken(newUser._id, "User")

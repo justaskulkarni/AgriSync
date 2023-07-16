@@ -40,7 +40,7 @@ const CPCDashboard = () => {
 
                 <div className={styles.leftbox}>
                     <span className={styles.analytics}>All requests</span>
-                    <span className={styles.welcometext}>Track requests in the state agricultural chain</span>
+                    <span className={styles.welcometext}>Track requests in the state agricultural chain of your state</span>
                 </div>
 
                 <span className={styles.mentorrequests2}>All requests : </span>

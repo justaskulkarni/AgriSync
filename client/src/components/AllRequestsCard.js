@@ -8,7 +8,7 @@ const AllRequestsCard = ({mentid}) => {
   useEffect(() => {
     const getdata = async() =>{
 
-      const response = await fetch(`http://localhost:6100/api/mfe/all`, {
+      const response = await fetch(`http://localhost:6100/api/mfe/getbyid/${mentid}`, {
         method: 'GET',
         headers: { 'Content-Type': 'application/json' },
       })
@@ -18,7 +18,7 @@ const AllRequestsCard = ({mentid}) => {
       {
         console.log(mentid)
         console.log(json)
-        setCredentials({name: json.data.name, quantity: json.data.quantity, grade: json.data.grade})
+        setCredentials({name: json.data.name, quantity: json.data.quantity, district: json.data.district, status: json.data.status})
 
       }
   
@@ -37,7 +37,8 @@ const AllRequestsCard = ({mentid}) => {
             <div className={styles.innermost1}>
               <p className={styles.cardcontent}>Name of Commodity: {credentials.name}</p>
               <p className={styles.cardcontent}>Quantity: {credentials.quantity}</p>
-              <p className={styles.cardcontent}>Grade: {credentials.grade}</p>
+              <p className={styles.cardcontent}>District: {credentials.district}</p>
+              <p className={styles.cardcontent}>Status: {credentials.status}</p>
             </div>
         </div>
       </div>
