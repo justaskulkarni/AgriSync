@@ -48,23 +48,6 @@ const PACSignup = () => {
   };
   return (
     <>
-      {/* <form onSubmit={handleSubmit}>
-        <label htmlFor="District">District</label>
-        <input type="text" value={credentials.district} name="district" onChange={onChange} placeholder="" />
-
-        <label htmlFor="State">State</label>
-        <input type="text" value={credentials.state} name="state" onChange={onChange} placeholder="" />
-
-        <label htmlFor="Email">Email</label>
-        <input type="email" value={credentials.email} name="email" onChange={onChange} placeholder="" />
-
-        <label htmlFor="Password">Password</label>
-        <input type="password" value={credentials.password} name="password" onChange={onChange} placeholder="" />
-
-        <button>Sign Up</button>
-        {error && <div>{error}</div>}
-      </form> */}
-
       <div>
         <section
           className="h-100 gradient-form"
@@ -174,11 +157,16 @@ const PACSignup = () => {
                       <div className="text-white px-3 py-4 p-md-5 mx-md-4">
                         <h4 className="mb-4">PAC</h4>
                         <p className="small mb-0">
-                          Lorem ipsum dolor sit amet, consectetur adipisicing
-                          elit, sed do eiusmod tempor incididunt ut labore et
-                          dolore magna aliqua. Ut enim ad minim veniam, quis
-                          nostrud exercitation ullamco laboris nisi ut aliquip
-                          ex ea commodo consequat.
+                          The PAC Portal is a cutting-edge online platform that
+                          revolutionizes farming. Utilizing smart farming tools,
+                          precise application management, and advanced
+                          analytics, it empowers farmers to optimize operations,
+                          maximize yields, and minimize costs. Benefit from
+                          real-time crop monitoring, intelligent decision
+                          support, and seamless connectivity. Join today and
+                          unleash the efficiency of precision agriculture for
+                          greater profitability and sustainable farming
+                          practices.
                         </p>
                       </div>
                     </div>
