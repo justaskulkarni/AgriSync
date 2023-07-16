@@ -2,7 +2,7 @@ import Chart from "chart.js/auto";
 import { CategoryScale } from "chart.js";
 import { useState } from "react";
 import { Emp_Data } from "./Emp_Data.js";
-import PieChart from "./PieChart";
+import PieChart2 from "./Piechart2.js";
 import '../stylesheets/Home.css'
 
 
@@ -30,7 +30,7 @@ export default function ChartCompEmployee() {
  
   return (
     <div className="ChartComponent">
-    <PieChart chartData={chartData}/>
+    <PieChart2 chartData={chartData}/>
 
     </div>
   );
