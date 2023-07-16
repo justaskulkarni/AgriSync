@@ -127,6 +127,7 @@ const FarmerSignup = () => {
                           knowledge repository, Farmers Portal empowers farmers
                           to make informed decisions, optimize their farming
                           operations, and connect with a supportive community
+                          Helpline Number 9944886622
                         </p>
                       </div>
                     </div>
