@@ -23,6 +23,8 @@ import CPCLogin from "./pages/CPCLogin";
 import Feedback from "./pages/Feedback";
 
 import CPCSignup from "./pages/CPCSignup";
+import CPCDataAnalytics from "./pages/CPCDataAnalytics";
+import ChartComponentnew from "./pages/Chartcomponentnew"
 
 function App() {
   return (
@@ -36,8 +38,6 @@ function App() {
           <Route path="/pac/signup" element={<PACSignup />} />
           <Route path="/mfe/login" element={<MFELogin />} />
           <Route path="/mfe/signup" element={<MFESignup />} />
-
-          <Route path="/chart" element={<ChartComponent/>} />
 
           <Route path="/cpc/login" element={<CPCLogin />} />
           <Route path="/cpc/signup" element={<CPCSignup />} />
@@ -60,6 +60,7 @@ function App() {
           <Route path="/feedback" element={<Feedback/>} />
 
           <Route path="/mfe/return" element={<MFEReturn />} />
+          <Route path="/dataanalysis" element={<CPCDataAnalytics/>}/>
 
         </Routes>
       </BrowserRouter>
