@@ -57,7 +57,7 @@ const FarmerSignup = () => {
                 <div className="card rounded-3 text-black">
                   <div className="row g-0">
                     <div className="col-lg-6">
-                      <div className="card-body p-md-5 mx-md-4">
+                      <div className=" mx-md-4">
                         <div className="text-center">
                           <img
                             src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/lotus.webp"
