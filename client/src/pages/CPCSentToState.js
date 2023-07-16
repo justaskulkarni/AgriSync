@@ -9,7 +9,7 @@ const CPCDashboard = () => {
 
     const getdata = async () => {
 
-        const response = await fetch("http://localhost:6100/api/mfe/all", {
+        const response = await fetch("http://localhost:6100/api/mfe/alltostate", {
             method: "GET",
             headers: { "Content-Type": "application/json" },
 
@@ -29,10 +29,9 @@ const CPCDashboard = () => {
         localStorage.removeItem("Token");
         navigate("/");
     };
-
     const handleClick = () => {
-        navigate("/cpc/view");
-      };
+        navigate("/cpc/dashboard");
+      }; 
 
     return (
         <>
@@ -45,8 +44,8 @@ const CPCDashboard = () => {
             <div className={styles.column + " " + styles.middle}>
 
                 <div className={styles.leftbox}>
-                    <span className={styles.analytics}>All products in state</span>
-                    <span className={styles.welcometext}>Displays all products in agricultural chain cycle</span>
+                    <span className={styles.analytics}>All products sent to CPC</span>
+                    <span className={styles.welcometext}>Final processed produts delivered by PAC</span>
                 </div>
 
                 <span className={styles.mentorrequests2}>All requests : </span>

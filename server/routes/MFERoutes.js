@@ -177,4 +177,16 @@ router.get('/all', async (req, res) => {
     }
 })
 
+router.get('/alltostate', async (req, res) => {
+    try {
+        const data = await Request.find({status: "SentToState"});
+
+        res.json({ success: true, data: data }); 
+        
+
+    } catch (error) {
+        res.status(400).json({ error: error.message })
+    }
+})
+
 module.exports = router;
