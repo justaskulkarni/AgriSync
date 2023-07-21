@@ -1,5 +1,5 @@
 # Team-78
-![Alt text](image-6.png)
+![Alt text](./images/image-6.png)
 
 <div align="center">
    <strong>AgriSync</strong> <br> <br>
