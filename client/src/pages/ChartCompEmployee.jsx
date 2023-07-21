@@ -1,8 +1,8 @@
 import Chart from "chart.js/auto";
 import { CategoryScale } from "chart.js";
 import { useState } from "react";
-import { Emp_Data } from "./Emp_Data.js";
-import PieChart2 from "./Piechart2.js";
+import { Emp_Data } from "./Emp_Data.jsx";
+import PieChart2 from "./Piechart2.jsx";
 import '../stylesheets/Home.css'
 
 
