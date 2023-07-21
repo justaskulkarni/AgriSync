@@ -51,16 +51,16 @@
 
 
 ## ⚒️System Architecture
-![Homepage](image.png) 
-![Raw Material Sale](image-1.png)
-![District Level Procurement Center](image-2.png)
-![Micro-Food Processing Mills](image-3.png)
-![Central Processing Center](image-7.png)
-![Building Blocks](image-8.png)
-![Basic Flow](image-10.png)
+![Homepage](./images/image.png) 
+![Raw Material Sale](./images/image-1.png)
+![District Level Procurement Center](./images/image-2.png)
+![Micro-Food Processing Mills](./images/image-3.png)
+![Central Processing Center](./images/image-7.png)
+![Building Blocks](./images/image-8.png)
+![Basic Flow](./images/image-10.png)
 ## 🔮Future Scope
 
-![Alt text](image-9.png)
+![Alt text](./images/image-9.png)
 
 ## 🛠Project Setup
 
@@ -110,19 +110,19 @@ Add names of your mentors with their emails and links to their GitHub accounts
 
 ## 📱Screenshots
 Login and Signup
-![Alt text](image-20.png)
-![Alt text](image-21.png)
+![Alt text](./images/image-20.png)
+![Alt text](./images/image-21.png)
 1. Farmer Level
 Make Commodity Request
-![Alt text](image-11.png)
+![Alt text](./images/image-11.png)
 2. PAC Level
 Ungraded Request with an option to grade them
-![Alt text](image-12.png)
+![Alt text](./images/image-12.png)
 Graded Requests at PAC
-![Alt text](image-13.png)
+![Alt text](./images/image-13.png)
 3. MFE Level
 View all graded requests at PAC with an option to request a product
-![Alt text](image-14.png)
+![Alt text](./images/image-14.png)
 Processed Products at MFE with an option to return it to PAC
 ![Alt text](image-15.png)
 4. CPC Level
@@ -133,4 +133,4 @@ View all inhouse finished products
 Analytics
 ![Alt text](image-18.png)
 5. Feedback
-![Alt text](image-19.png)
+![Alt text](./images/image-19.png)
