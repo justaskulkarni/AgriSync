@@ -124,13 +124,13 @@ Graded Requests at PAC
 View all graded requests at PAC with an option to request a product
 ![Alt text](./images/image-14.png)
 Processed Products at MFE with an option to return it to PAC
-![Alt text](image-15.png)
+![Alt text](./images/image-15.png)
 4. CPC Level
 Track status of all requests
-![Alt text](image-16.png)
+![Alt text](./images/image-16.png)
 View all inhouse finished products 
-![Alt text](image-17.png)
+![Alt text](./images/image-17.png)
 Analytics
-![Alt text](image-18.png)
+![Alt text](./images/image-18.png)
 5. Feedback
 ![Alt text](./images/image-19.png)
