@@ -91,7 +91,6 @@
     npm start
 ## 👨‍💻Team Members
 
-Add names of your team members with their emails and links to their GitHub accounts
 
 - Aditya Kulkarni (Team Leader) 
 - Shinjini Chatterjee
@@ -102,7 +101,6 @@ Add names of your team members with their emails and links to their GitHub accou
 
 ## 👨‍🏫Mentors
 
-Add names of your mentors with their emails and links to their GitHub accounts
 
 - Vinod Gowda 
 - Shivam Nema 
