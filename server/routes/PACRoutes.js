@@ -3,7 +3,7 @@ if (process.env.NODE_ENV !== "production") {
 }
 
 const express = require('express');
-
+const mongoose = require('mongoose');
 const PAC = require('../models/PAC')
 const Request = require('../models/request')
 
@@ -90,7 +90,7 @@ router.post('/signup', async (req, res) => {
 router.get('/getall/:id', async (req, res) => {
     try {
         const district = req.params.id;
-        const data = await Request.find({ district, graded: false });
+        const data = await Request.find({ district, grade: -1 });
 
         res.json({ success: true, data: data });
 
@@ -149,23 +149,25 @@ router.get('/getbyidgraded/:id', async (req, res) => {
 
 router.post('/grade/:id', async (req, res) => {
     try {
-        console.log("hi")
+
         const reqid = req.params.id;
         const grade = req.body.grade;
-        console.log(reqid, grade)
-        const request = await Request.findOne({ reqid });
-        if (!request) {
-            return res.status(404).json({ error: 'Request not found' });
-          }
-        
-          // Update the fields
-          request.graded = true;
-          request.grade = grade;
-        
-          // Save the updated request
-          await request.save();
-          console.log(request)
-          res.json({ success: true, request: request });
+
+        console.log(reqid);
+
+        // Convert the string reqid to ObjectId
+        const objectIdReqid = new mongoose.Types.ObjectId(reqid);
+
+        const request = await Request.findOne({ _id: objectIdReqid });
+        console.log(request);
+
+        // Update the fields
+        request.graded = true;
+        request.grade = grade;
+
+        // Save the updated request
+        await request.save();
+        res.json({ success: true, request: request });
 
     } catch (error) {
         res.status(400).json({ error: error.message })

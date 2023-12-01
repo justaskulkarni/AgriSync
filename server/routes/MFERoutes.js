@@ -189,4 +189,16 @@ router.get('/alltostate', async (req, res) => {
     }
 })
 
+router.get('/getallgradedandnotreq/:id', async (req, res) => {
+    try {
+        const district = req.params.id;
+        const data = await Request.find({ district, graded: true, status: "NotTaken" });
+
+        res.json({ success: true, data: data });
+
+    } catch (error) {
+        res.status(400).json({ error: error.message })
+    }
+})
+
 module.exports = router;

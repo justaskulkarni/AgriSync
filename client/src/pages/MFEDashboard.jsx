@@ -27,7 +27,7 @@ function MFEDashboard() {
   };
   const getdata = async () => {
     const response = await fetch(
-      "http://localhost:6100/api/pac/getallgraded/Thane",
+      "http://localhost:6100/api/mfe/getallgradedandnotreq/Thane",
       {
         method: "GET",
         headers: { "Content-Type": "application/json" },
