@@ -4,7 +4,7 @@ import logo from "../images/logo (2).jpeg";
 function Navbar() {
   return (
     <>
-      <nav className="navbar navbar-expand-lg bg-my static-top">
+      <nav className="navbar navbar-expand-lg bg-my static-top sticky-top">
         <div className="container">
           <a className="navbar-brand" href="#">
             <div className="d-flex">

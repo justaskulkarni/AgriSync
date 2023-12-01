@@ -1,36 +1,45 @@
-.bg-14{
-    background-color: #f08061 ;
+.bg-14 {
+    background-color: #f08061;
     border-radius: 25px;
     opacity: 90%;
 }
-.bg-23{
+
+.bg-23 {
     background-color: #ef82b6;
     border-radius: 25px;
     opacity: 90%;
 }
-.btn-light-dark {
-    background-color: #79b7f4; /* Light initial color */
-    color: #212529; /* Text color */
-    transition: background-color 0.3s ease; /* Transition duration and easing */
-  }
-  
-  .btn-light-dark:hover {
-    background-color: #343a40; /* Darker color on hover */
-    color: #ffffff; /* Text color on hover */
-  }
 
-.bg-my{
+.btn-light-dark {
+    background-color: #79b7f4;
+    /* Light initial color */
+    color: #212529;
+    /* Text color */
+    transition: background-color 0.3s ease;
+    /* Transition duration and easing */
+}
+
+.btn-light-dark:hover {
+    background-color: #343a40;
+    /* Darker color on hover */
+    color: #ffffff;
+    /* Text color on hover */
+}
+
+.bg-my {
     background-color: #7bb1d3;
 }
 
-.bg-img{
+.bg-img {
     background-image: url("../images/background.jpeg");
-    background-size: cover;
+    min-height: 100%;
     background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover
 }
 
-.ChartComponent{
-    width:500px;
-   height:500px;
+.ChartComponent {
+    width: 500px;
+    height: 500px;
 }
-

@@ -1,12 +1,13 @@
 .column {
 	float: left;
+	height: 100%;
 }
 
 .left {
-	width: 20%;
-	overflow-y: hidden;
+	width: 15%;
 	position: fixed;
 	left: 0;
+	background-color: #7bb1d3;
 }
 
 .right {
@@ -14,7 +15,6 @@
 	overflow-y: hidden;
 	position: fixed;
 	right: 0;
-	margin-top: 5rem;
 }
 
 .middle {
@@ -22,8 +22,9 @@
 	overflow-y: scroll;
 	margin-top: 3vh;
 	margin-bottom: 3vh;
-	margin-left: 20%;
+	margin-left: 25%;
 	margin-right: 0;
+	height: 100vh;
 }
 
 .topcontainer {
@@ -62,9 +63,16 @@
 }
 
 .notifications {
-	color: #505887;
+	color: #f1f1f1;
+	font-style: bold;
 	font-size: 1.2rem;
 	display: block;
+	font-weight: 600;
+
+}
+
+.notifications:hover{
+	color: #7bb1d3;
 }
 
 .welcometext {
@@ -89,16 +97,27 @@
 
 .smallcardleft {
 	display: block;
-	margin-top: 3vh;
 	margin-bottom: 3vh;
 	margin-left: 2vw;
 }
 
 .leftbutton {
-	border: none;
-	background-color: white;
 	display: block;
 	margin-top: 10%;
+	padding: 10px 20px;
+	font-size: 16px;
+	text-align: center;
+	border-radius: 5px;
+	background-color: black;
+	border: 2px solid black;
+	transition: background-color 0.3s, color 0.3s;
+	position: relative;
+	z-index: 1;
+}
+
+.leftbutton:hover {
+	background-color: #ffffff;
+	color: #3498db;
 }
 
 .statscontainer {
