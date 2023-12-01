@@ -32,6 +32,32 @@ mongoose
   .then(() => console.log("Mongoup"))
   .catch((e) => console.log(e));
 
+const io = require('socket.io')(server, {
+  cors: {
+    origin: 'http://localhost:3000',
+    methods: ['GET', 'POST']
+  }
+})
+
+io.on("connection", (socket) => {
+
+  socket.on("join-one", async(room) => {
+      console.log("Hi")
+      await socket.join(room)
+  })
+
+  socket.on("send-room", async (room, message, role) => {
+
+      const dateob = new Date();
+      const reqt = `${dateob.getHours().toString().padStart(2, '0')}:${dateob.getMinutes().toString().padStart(2, '0')}:${dateob.getSeconds().toString().padStart(2, '0')}`;
+      const reqd = `${dateob.getDate().toString().padStart(2, '0')}/${(dateob.getMonth() + 1).toString().padStart(2, '0')}/${dateob.getFullYear()}`;
+      console.log(message, role, reqd, reqt)
+      await io.to(room).emit("receive-room", message, role, reqd, reqt)
+
+  })
+
+})
+
 app.get("/", (req, res) => {
   res.send("Welcome to home page sir");
 });

@@ -1,16 +1,11 @@
 import React from "react";
 import "../stylesheets/Home.css";
 
-import Footer from "./Footer";
-
-import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
     <>
-      {/* Navigation */}
-      <div>
-        {/* Hero */}
+      {/* <div>
         <div>
           <div className="container">
             <div className="row d-flex justify-content-between my-5">
@@ -48,10 +43,6 @@ const Home = () => {
               </div>
             </div>
           </div>
-
-          {/* Hero */}
-
-          {/* Second container for cards */}
           <div className="container">
             <div className=" row d-flex justify-content-between my-5">
               <div className="col-md-4">
@@ -91,7 +82,23 @@ const Home = () => {
             </div>
           </div>
         </div>
+      </div> */}
+      <header style={{ paddingLeft: 0 }}>
+      <div
+        className='p-5 text-center bg-image'
+        style={{ backgroundImage: "url('https://static.vecteezy.com/system/resources/previews/009/302/810/non_2x/beautiful-forest-panoramic-realistic-wanderlust-background-landscape-dark-trees-pine-in-mist-design-mystery-fog-in-park-concept-nature-beauty-tourism-web-banner-free-vector.jpg')", backgroundSize: "auto", height: 670, backgroundRepeat: "repeat-x" }}
+      >
+        
+          <div className='d-flex justify-content-center align-items-center '>
+            <div className='text-white'>
+              <h1 className='mb-3'>AgriSync</h1>
+              <h4 className='mb-3'>Enabling seamless coordination</h4>
+              <h4 className="mb-3">& visibility in agricultural value chain</h4>
+            </div>
+          </div>
+        
       </div>
+    </header>
     </>
   );
 };

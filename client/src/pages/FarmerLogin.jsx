@@ -88,12 +88,7 @@ const Login = () => {
                             id="form2Example11"
                             className="form-control"
                           />
-                          <label
-                            className="form-label"
-                            htmlFor="form2Example11"
-                          >
-                            Email
-                          </label>
+                          
                         </div>
                         <div className="form-outline mb-4">
                           <input
@@ -105,12 +100,6 @@ const Login = () => {
                             id="form2Example22"
                             className="form-control"
                           />
-                          <label
-                            className="form-label"
-                            htmlFor="form2Example22"
-                          >
-                            Password
-                          </label>
                         </div>
                         <div className="text-center pt-1 mb-5 pb-1">
                           <button

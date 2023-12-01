@@ -21,11 +21,11 @@ import MFEProducts from "./pages/MFEProducts";
 import MFEReturn from "./pages/MFEReturn";
 import CPCLogin from "./pages/CPCLogin";
 import Feedback from "./pages/Feedback";
-
+import FarmerLanding from "./pages/FarmerLanding";
 import CPCSignup from "./pages/CPCSignup";
-
+import Chat from "./pages/Chat";
 import CPCDataAnalytics from "./pages/CPCDataAnalytics";
-import ChartComponentnew from "./pages/Chartcomponentnew"
+
 import CPCDashboard from "./pages/CPCDashboard";
 import CPCSentToState from "./pages/CPCSentToState"
 import Navbar from "./components/Navbar";
@@ -49,14 +49,11 @@ function App() {
             <Route path="/mfe/signup" element={<MFESignup />} />
             <Route path="/cpc/dashboard" element={<CPCDashboard />} />
             <Route path="/cpc/view" element={<CPCSentToState />} />
-          <Route path="/cpc/login" element={<CPCLogin />} />
-          <Route path="/cpc/signup" element={<CPCSignup />} />
-
+            <Route path="/cpc/login" element={<CPCLogin />} />
+            <Route path="/cpc/signup" element={<CPCSignup />} />
+            <Route path="/farmer/landing" element={<FarmerLanding />} />
             <Route path="/chart" element={<ChartComponent />} />
-
-
-
-
+            <Route path="/chat" element={<Chat />} />
             <Route element={<FarmerPrivateRoutes />}>
               <Route
                 path="/farmer/requestform"
@@ -69,10 +66,10 @@ function App() {
             <Route element={<PACPrivateRoutes />}>
               {/* <Route path="/pac/dashboard" element={<PACDashboard />} /> */}
             </Route>
-              <Route
-                path="/pac/viewgraded"
-                element={<PACViewGradedRequests />}
-              />
+            <Route
+              path="/pac/viewgraded"
+              element={<PACViewGradedRequests />}
+            />
             <Route path="/farmer/dashboard" element={<FarmerDashboard />} />
             <Route path="/success" element={<Success />} />
             <Route path="/mfe/dashboard" element={<MFEDashboard />} />
@@ -82,14 +79,13 @@ function App() {
             <Route path="/feedback" element={<Feedback />} />
 
 
-          <Route path="/mfe/return" element={<MFEReturn />} />
-          <Route path="/dataanalysis" element={<CPCDataAnalytics/>}/>
+            <Route path="/mfe/return" element={<MFEReturn />} />
+            <Route path="/dataanalysis" element={<CPCDataAnalytics />} />
 
             <Route path="/mfe/return" element={<MFEReturn />} />
           </Routes>
 
 
-          <Footer />
         </div>
       </BrowserRouter>
     </div>

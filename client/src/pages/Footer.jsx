@@ -9,7 +9,7 @@ function Footer() {
         {/* Footer */}
         <footer
           className="text-center text-lg-start text-white"
-          style={{ backgroundColor: "#716a6b" }}
+          style={{ backgroundColor: "black" }}
         >
           {/* Grid container */}
           <div className="container p-4 pb-0">
