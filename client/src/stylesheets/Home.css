@@ -31,7 +31,6 @@
 }
 
 .bg-img {
-    background-image: url("../images/background.jpeg");
     min-height: 100%;
     background-repeat: no-repeat;
     background-attachment: fixed;

@@ -52,7 +52,7 @@ const Card = ({mentid}) => {
             <div className={styles.innermost1}>
               <p className={styles.cardcontent}>Name of Commodity: {credentials.name}</p>
               <p className={styles.cardcontent}>Quantity: {credentials.quantity}</p>
-              <input type="number" value={grade} name="grade" onChange={onChange} className={styles.grade} placeholder="Grade" /> 
+              <p className={styles.cardcontent}>Grade: <input type="number" value={grade} name="grade" onChange={onChange} className={styles.grade} placeholder="Grade" /></p>
               <p className={styles.cardcontent}><button onClick={handleGrade} className='btn btn-dark'>Confirm Grade</button></p>
             </div>
         </div>
