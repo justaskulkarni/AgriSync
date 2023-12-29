@@ -34,10 +34,10 @@ const FarmerDashboard = () => {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        name: credentials.name,
-        district: credentials.district,
-        quantity: credentials.quantity,
-        state: credentials.state,
+        name: credentials.name.trim(),
+        district: credentials.district.trim(),
+        quantity: credentials.quantity.trim(),
+        state: credentials.state.trim(),
       }),
     });
 
@@ -135,32 +135,32 @@ const FarmerDashboard = () => {
 
                           </div>
                           {price === null && (
-                          <div className="text-center pt-1 mb-2 pb-1">
-                            <button
-                              className="btn btn-primary btn-block m-2"
-                              type="button"
-                              style={{ background: 'linear-gradient(to right, #40E0D0, #6495ED)'}}
-                              onClick={handlePriceFind}
-                            >
-                              Find Out Price
-                            </button>
-                          </div>
+                            <div className="text-center pt-1 mb-2 pb-1">
+                              <button
+                                className="btn btn-primary btn-block m-2"
+                                type="button"
+                                style={{ background: 'linear-gradient(to right, #40E0D0, #6495ED)' }}
+                                onClick={handlePriceFind}
+                              >
+                                Find Out Price
+                              </button>
+                            </div>
                           )}
                           <div className="form-outline mb-4">
                             {price !== null && (
                               <div>
-                              <h5 style={{ fontFamily: 'Georgia, serif', color: '#009900' }} >The price is: Rs.{price}</h5>
-                              <h5 style={{ fontFamily: 'Georgia, serif', color: '#009900' }} >Place a Request if you are happy with the price</h5>
-                              <button
-                              className="btn btn-primary btn-block fa-lg warm-flame-gradient m-2"
-                              type="button"
-                              style={{ background: 'linear-gradient(to right, #40E0D0, #6495ED)'}}
-                              onClick={handleSubmit}
-                            >
-                              Submit Request
-                            </button>
+                                <h5 style={{ fontFamily: 'Georgia, serif', color: '#009900' }} >The price is: Rs.{price}</h5>
+                                <h5 style={{ fontFamily: 'Georgia, serif', color: '#009900' }} >Place a Request if you are happy with the price</h5>
+                                <button
+                                  className="btn btn-primary btn-block fa-lg warm-flame-gradient m-2"
+                                  type="button"
+                                  style={{ background: 'linear-gradient(to right, #40E0D0, #6495ED)' }}
+                                  onClick={handleSubmit}
+                                >
+                                  Submit Request
+                                </button>
                               </div>
-                              
+
                             )}
                           </div>
 
@@ -168,7 +168,7 @@ const FarmerDashboard = () => {
 
                       </div>
                     </div>
-                    <div className="col-lg-6 d-flex align-items-center" style={{ background: 'linear-gradient(to right, #40E0D0, #6495ED)'}}>
+                    <div className="col-lg-6 d-flex align-items-center" style={{ background: 'linear-gradient(to right, #40E0D0, #6495ED)' }}>
                       <div className="text-white px-3 py-4 p-md-5 mx-md-4">
                         <h4 className="mb-4">
                           Raise commodity request

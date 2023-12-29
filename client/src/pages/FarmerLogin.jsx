@@ -103,7 +103,8 @@ const Login = () => {
                         </div>
                         <div className="text-center pt-1 mb-5 pb-1">
                           <button
-                            className="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3"
+                            className="btn btn-primary btn-block fa-lg mb-3"
+                            style={{ background: 'linear-gradient(to right, #40E0D0, #6495ED)' }}
                             type="button"
                             onClick={handleSubmit}
                           >
@@ -122,7 +123,7 @@ const Login = () => {
                       </form>
                     </div>
                   </div>
-                  <div className="col-lg-6 d-flex align-items-center gradient-custom-2">
+                  <div className="col-lg-6 d-flex align-items-center" style={{ background: 'linear-gradient(to right, #40E0D0, #6495ED)' }}>
                     <div className="text-white px-3 py-4 p-md-5 mx-md-4">
                       <h4 className="mb-4">Farmer</h4>
                       <p className="small mb-0">

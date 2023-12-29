@@ -10,6 +10,9 @@ const PACDashboard = () => {
   const handleClick = () => {
     navigate("/pac/viewgraded");
   };
+  const handleClick2 = () => {
+    navigate("/pac/price")
+  }
   const getdata = async () => {
     const response = await fetch("http://localhost:6100/api/pac/getall/Thane", {
       method: "GET",
@@ -21,6 +24,7 @@ const PACDashboard = () => {
     if (json.success) {
       const newIdArray = json.data.map((item) => item._id);
       setIdArray(newIdArray);
+      
     }
   };
   useEffect(() => {
@@ -38,6 +42,9 @@ const PACDashboard = () => {
           <div className={styles.smallcardleft}>
             <button className={styles.leftbutton}>
               <span className={styles.notifications}>Grade requests</span>
+            </button>
+            <button className={styles.leftbutton}>
+              <span className={styles.notifications} onClick={handleClick2}>Change Prices</span>
             </button>
             <button className={styles.leftbutton}>
               <span className={styles.notifications} onClick={handleClick}>

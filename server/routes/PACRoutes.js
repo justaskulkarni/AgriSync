@@ -174,6 +174,24 @@ router.post('/grade/:id', async (req, res) => {
     }
 })
 
+router.post('/updateprice/:id', async(req, res) =>{
+    try {
+        console.log('hi')
+        const id = req.params.id
+        const newPrice = req.body.newPrice
+        console.log(newPrice)
+        const objectIdReqid = new mongoose.Types.ObjectId(id)
+        const item = await Price.findOne({ _id: objectIdReqid })
+        console.log(item)
+        item.price = newPrice
+        await item.save()
+        console.log(item)
+        res.json({ success: true, data: item })
+    } catch (error) {
+        
+    }
+})
+
 router.get('/getprice', async(req, res) =>{
     try {
         const itemPrices = await Price.find();

@@ -7,18 +7,32 @@ const FarmerSignup = () => {
     email: "",
     name: "",
     password: "",
+    otp: 0
   });
   const [error, setError] = useState(null);
+  const [mailSent, setMailSent] = useState(false)
   let navigate = useNavigate();
   const onChange = (event) => {
     setCredentials({ ...credentials, [event.target.name]: event.target.value });
   };
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const response = await fetch("http://localhost:6100/api/user/signup", {
+  const handleMail = async (e) =>{
+    e.preventDefault()
+    const response = await fetch("http://localhost:6100/api/user/send-email", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
+        email: credentials.email,
+      }),
+    })
+    setMailSent(true)
+  }
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const response = await fetch("http://localhost:6100/api/user/verify", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        otp: credentials.otp,
         email: credentials.email,
         name: credentials.name,
         password: credentials.password,
@@ -68,53 +82,82 @@ const FarmerSignup = () => {
                         </div>
                         <form>
                           <h5>New Account</h5>
+                          {!mailSent && (
+                            <div>
+                              <div className="form-outline mb-4">
+                                <input
+                                  type="text"
+                                  value={credentials.name}
+                                  name="name"
+                                  onChange={onChange}
+                                  placeholder="Name"
+                                  className="form-control"
+                                />
+                              </div>
 
+                              <div className="form-outline mb-4">
+                                <input
+                                  type="email"
+                                  value={credentials.email}
+                                  name="email"
+                                  onChange={onChange}
+                                  placeholder="Email id"
+                                  className="form-control"
+                                />
+                              </div>
+
+                              <div className="form-outline mb-4">
+                                <input
+                                  type="password"
+                                  value={credentials.password}
+                                  name="password"
+                                  onChange={onChange}
+                                  placeholder="Password"
+                                  className="form-control"
+                                />
+                              </div>
+                            </div>
+                          )}
+                          {mailSent && (
                           <div className="form-outline mb-4">
                             <input
-                              type="text"
-                              value={credentials.name}
-                              name="name"
+                              type="number"
+                              value={credentials.otp}
+                              name="otp"
                               onChange={onChange}
-                              placeholder="Name"
+                              placeholder="Enter OTP Received on Mail"
                               className="form-control"
                             />
                           </div>
-
-                          <div className="form-outline mb-4">
-                            <input
-                              type="email"
-                              value={credentials.email}
-                              name="email"
-                              onChange={onChange}
-                              placeholder="Email id"
-                              className="form-control"
-                            />
-                          </div>
-
-                          <div className="form-outline mb-4">
-                            <input
-                              type="password"
-                              value={credentials.password}
-                              name="password"
-                              onChange={onChange}
-                              placeholder="Password"
-                              className="form-control"
-                            />
-                          </div>
-
+                          )}
+                          {!mailSent && (
                           <div className="text-center pt-1 mb-5 pb-1">
                             <button
-                              className="btn btn-primary btn-block fa-lg gradient-custom-2 m-5"
+                              className="btn btn-primary btn-block fa-lg m-3"
+                              style={{ background: 'linear-gradient(to right, #40E0D0, #6495ED)' }}
+                              type="button"
+                              onClick={handleMail}
+                            >
+                              Send OTP
+                            </button>
+                          </div>
+                          )}
+                          {mailSent && (
+                          <div className="text-center pt-1 mb-5 pb-1">
+                            <button
+                              className="btn btn-primary btn-block fa-lg m-3"
+                              style={{ background: 'linear-gradient(to right, #40E0D0, #6495ED)' }}
                               type="button"
                               onClick={handleSubmit}
                             >
-                              Confirm
+                              Verify OTP
                             </button>
                           </div>
+                          )}
                         </form>
                       </div>
                     </div>
-                    <div className="col-lg-6 d-flex align-items-center gradient-custom-2">
+                    <div className="col-lg-6 d-flex align-items-center" style={{ background: 'linear-gradient(to right, #40E0D0, #6495ED)' }}>
                       <div className="text-white px-3 py-4 p-md-5 mx-md-4">
                         <h4 className="mb-4">Farmer</h4>
                         <p className="small mb-0">

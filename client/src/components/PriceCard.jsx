@@ -9,7 +9,20 @@ const PriceCard = ({ itemid }) => {
         e.preventDefault();
         setIsOpen(true)
     };
-    const onChange = (e) =>{
+    const handleClose = (e) => {
+        e.preventDefault()
+        setIsOpen(false)
+    }
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+        const response = await fetch(`http://localhost:6100/api/pac/updateprice/${itemid}`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ newPrice: price }),
+      });
+      window.location.reload();
+    }
+    const onChange = (e) => {
         const { value } = e.target
         setPrice(value)
     }
@@ -41,7 +54,8 @@ const PriceCard = ({ itemid }) => {
             {isOpen && (
                 <div className={styles.popupcontainer}>
                     <div className={styles.popup}>
-                    <p className={styles.cardcontent}>New Price: <input type="string" value={price} name="price" onChange={onChange} /></p>
+                        <p className={styles.cardcontent}>New Price: <input type="string" value={price} name="price" onChange={onChange} /></p>
+                        <button onClick={handleSubmit} style={{ marginTop: '3.5rem', backgroundColor: '#ff9900', color: '#ffffff', padding: '8px 16px', border: 'none', borderRadius: '4px', cursor: 'pointer' }} >Confirm New Price</button>
                     </div>
                 </div>
             )}

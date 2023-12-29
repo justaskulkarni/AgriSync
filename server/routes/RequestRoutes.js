@@ -37,7 +37,7 @@ router.post('/postreq', async (req, res) => {
         })
 
         await newUser.save()
-
+        console.log(newUser)
         res.json({ success: true })
 
     } catch (error) {
