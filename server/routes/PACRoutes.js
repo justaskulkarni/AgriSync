@@ -6,7 +6,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const PAC = require('../models/PAC')
 const Request = require('../models/request')
-
+const Price = require('../models/price')
 const bcrypt = require('bcrypt')
 const validator = require('validator')
 const jwt = require('jsonwebtoken');
@@ -169,6 +169,26 @@ router.post('/grade/:id', async (req, res) => {
         await request.save();
         res.json({ success: true, request: request });
 
+    } catch (error) {
+        res.status(400).json({ error: error.message })
+    }
+})
+
+router.get('/getprice', async(req, res) =>{
+    try {
+        const itemPrices = await Price.find();
+        res.json({ success: true, data: itemPrices})
+    } catch (error) {
+        res.status(400).json({ error: error.message })
+    }
+})
+
+router.get('/getprice/:id', async(req, res) =>{
+    try {
+        const itemId = req.params.id
+        const objectIdPriceid = new mongoose.Types.ObjectId(itemId);
+        const price = await Price.findOne({ _id: objectIdPriceid });
+        res.json({ success: true, data: price })
     } catch (error) {
         res.status(400).json({ error: error.message })
     }

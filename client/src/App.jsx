@@ -9,6 +9,7 @@ import MFELogin from "./pages/MFELogin";
 import MFESignup from "./pages/MFESignup";
 import MFEDashboard from "./pages/MFEDashboard";
 import PACDashboard from "./pages/PACDashboard";
+import PACPrice from "./pages/PACPrice";
 import PACViewGradedRequests from "./pages/PACViewGradedRequests";
 import FarmerRequestForm from "./pages/FarmerRequestForm";
 import FarmerPrivateRoutes from "./utils/FarmerPrivateRoutes";
@@ -75,13 +76,10 @@ function App() {
             <Route path="/mfe/dashboard" element={<MFEDashboard />} />
             <Route path="/mfe/products" element={<MFEProducts />} />
             <Route path="/pac/dashboard" element={<PACDashboard />} />
-
+            <Route path="/pac/price" element={<PACPrice />} />
             <Route path="/feedback" element={<Feedback />} />
-
-
             <Route path="/mfe/return" element={<MFEReturn />} />
             <Route path="/dataanalysis" element={<CPCDataAnalytics />} />
-
             <Route path="/mfe/return" element={<MFEReturn />} />
           </Routes>
 

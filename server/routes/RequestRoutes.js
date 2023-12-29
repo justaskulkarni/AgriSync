@@ -5,8 +5,23 @@ if (process.env.NODE_ENV !== "production") {
 const express = require('express');
 
 const Request = require('../models/request')
-
+const Price = require('../models/price')
 const router = express.Router()
+
+router.post('/getsellingprice', async(req, res) =>{
+    try {
+        const item = req.body.name
+        let quantity = req.body.quantity
+        const data = await Price.findOne({ name: item });
+        let price = parseInt(data.price, 10);
+        quantity = parseInt(quantity, 10)
+        price = price * quantity     
+        console.log(price)
+        res.json({ success: true, price })
+    } catch (error) {
+        res.status(400).json({ error: error.message })
+    }
+})
 
 router.post('/postreq', async (req, res) => {
 

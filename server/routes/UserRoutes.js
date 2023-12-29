@@ -32,11 +32,6 @@ router.post('/login', async (req, res) => {
             throw Error('Incorrect Email')
         }
 
-        const match = await bcrypt.compare(req.body.password, requser.password)
-
-        if (!match) {
-            throw Error('Password is incorrect')
-        }
         else {
             const token = createToken(requser._id, "User")
             res.json({ success: true, authToken: token })
