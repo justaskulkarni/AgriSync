@@ -4,13 +4,24 @@ if (process.env.NODE_ENV !== "production") {
 
 const express = require('express');
 
+
+
 const MFE = require('../models/MFE')
 const Request = require('../models/request')
 const bcrypt = require('bcrypt')
 const validator = require('validator')
 const jwt = require('jsonwebtoken');
+const mongoose = require('mongoose')
+const dotenv = require('dotenv')
+const razorpay = require('razorpay')
+const crypto = require('crypto')
 
 const router = express.Router()
+
+const instance = new razorpay({
+    key_id: process.env.RAZORPAY_API_KEY,
+    key_secret: process.env.RAZORPAY_API_SECRET,
+  });
 
 const createToken = (id, role) => {
     return jwt.sign({ id, role }, process.env.SECRET, {
@@ -200,5 +211,40 @@ router.get('/getallgradedandnotreq/:id', async (req, res) => {
         res.status(400).json({ error: error.message })
     }
 })
+
+// checkout api
+router.post("/checkout",async(req,res)=>{
+
+    const options ={
+        amount:Number(req.body*100),
+        currency:"INR",
+    };
+    const order = await instance.orders.create(options);
+    console.log(order);
+    res.status(200).json({
+        success:true,order
+    })
+
+})
+
+// payemnt verification
+router.post("/paymentverification",async(req,res)=>{
+    const {razorpay_order_id,razorpay_payment_id,razorpay_signature}=req.body;
+    const body = razorpay_order_id + "|" +razorpay_payment_id;
+    const expectedsgnature =crypto.createHmac('sha256',process.env.RAZORPAY_API_SECRET).update(body.toString()).digest('hex')
+    const isauth = expectedsgnature === razorpay_signature;
+    if(isauth){
+     await Payment.create({
+         razorpay_order_id,razorpay_payment_id,razorpay_signature 
+     })
+     res.redirect(`http://localhost:3000/api/mfe/paymentsuccess?reference=${razorpay_payment_id}`)
+    }
+    else{
+     res.status(400).json({success:false});
+    }
+ })
+ 
+ 
+ 
 
 module.exports = router;

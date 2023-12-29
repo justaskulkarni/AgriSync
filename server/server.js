@@ -1,6 +1,11 @@
+// import Razorpay from "razorpay"
+
+
+
 if (process.env.NODE_ENV !== "production") {
   require("dotenv").config();
 }
+
 
 const express = require("express");
 const bodyParser = require("body-parser");
@@ -65,3 +70,6 @@ app.get("/", (req, res) => {
 server.listen(MYPORT, () => {
   console.log(`Ready to serve you master on ${MYPORT}`);
 });
+
+
+

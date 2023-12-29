@@ -26,12 +26,13 @@ import FarmerLanding from "./pages/FarmerLanding";
 import CPCSignup from "./pages/CPCSignup";
 import Chat from "./pages/Chat";
 import CPCDataAnalytics from "./pages/CPCDataAnalytics";
-
+import StaticMap from "./pages/map";
 import CPCDashboard from "./pages/CPCDashboard";
 import CPCSentToState from "./pages/CPCSentToState"
 import Navbar from "./components/Navbar";
 import Footer from "./pages/Footer";
-
+import PaymentSuccess from './pages/PaymentSuccess'
+import MFEProductCard from "./pages/MFEProductCard";
 
 function App() {
   return (
@@ -81,6 +82,8 @@ function App() {
             <Route path="/mfe/return" element={<MFEReturn />} />
             <Route path="/dataanalysis" element={<CPCDataAnalytics />} />
             <Route path="/mfe/return" element={<MFEReturn />} />
+            <Route path="/cpc/map" element={<StaticMap />} />
+            <Route path='/paymentsuccess' element={<PaymentSuccess/>}/>
           </Routes>
 
 

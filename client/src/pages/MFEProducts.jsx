@@ -7,228 +7,78 @@ import img3 from "../images/garlicoil.jpg";
 import img4 from "../images/pulses.jpg";
 import img5 from "../images/soyabean.jpg";
 import img6 from "../images/milkpowder.jpg";
+import MFEProductCard from "./MFEProductCard";
+import axios from "axios";
 
-function MFEProducts() {
+
+const MFEProducts = () => {
+
+  const checkouthandler =async(amount)=>{
+    const key = "rzp_test_EnJA3p9CWHG7GU"
+    const {data:{order}}=await axios.post("http://localhost:6100/api/mfe/checkout",{amount})
+    console.log(window);
+    const options ={
+      key:key,
+      amount:order.amount,
+      currency:"INR",
+      name:"Sinmplyjs",
+      description:"Razorpay tutorial",
+      image:"https://avatars.githubusercontent.com/u/96648429?s=96&v=4",
+      order_id:order.id,
+      callback_url:"http://localhost:6100/api/mfe/paymentverification",
+      prefill:{
+        name:"AgriSync",
+        email:"gholesailie@gmail.com",
+        contact:"1234567890"
+      },
+      notes:{
+        "address":"razorapy official"
+      },
+      theme:{
+        "color":"#3399cc"
+      }
+    };
+    const razor = new window.Razorpay(options);
+    razor.open();
+  }
+
+  const products = [
+    { img: img2, badge: { class: 'bg-primary', text: 'New' }, productName: 'Product name', category: 'Category', price: '$61.99', onClick: () => checkouthandler(checkouthandler) },
+    { img: img1, badge: { class: 'bg-success', text: 'Eco' }, productName: 'Product name', category: 'Category', price: '$61.99', onClick: () => checkouthandler(checkouthandler) },
+    { img: img2, badge: { class: 'bg-primary', text: 'New' }, productName: 'Product name', category: 'Category', price: '$61.99', onClick: () => checkouthandler(checkouthandler) },
+    { img: img4, badge: { class: 'bg-success', text: 'Eco' }, productName: 'Product name', category: 'Category', price: '$61.99', discountPrice: '$50.99', onClick: () => checkouthandler(checkouthandler) },
+    { img: img5, productName: 'Product name', category: 'Category', price: '$61.99', onClick: () => checkouthandler(checkouthandler) },
+    {
+      img: img6,
+      badge: { class: 'bg-primary', text: 'New' },
+      productName: 'Product name',
+      category: 'Category',
+      price: (
+        <>
+          <s>$61.99</s>
+          <strong className="ms-2 text-danger">$50.99</strong>
+        </>
+      ),
+      onClick: () => checkouthandler(checkouthandler),
+    },
+  ];
+
+  
+
   return (
     <>
       <h1 className="text-center">All our MFE Products!!</h1>
-      <section style={{ backgroundColor: "#eee" }}>
+      <section style={{ backgroundColor: '#eee' }}>
         <div className="text-center container py-5">
           <h4 className="mt-4 mb-5">
             <strong>Bestsellers</strong>
           </h4>
           <div className="row">
-            <div className="col-lg-4 col-md-12 mb-4">
-              <div className="card">
-                <div
-                  className="bg-image hover-zoom ripple ripple-surface ripple-surface-light"
-                  data-mdb-ripple-color="light"
-                >
-                  <img src={img2} className="card-img-top" />
-                  <a href="#!">
-                    <div className="mask">
-                      <div className="d-flex justify-content-start align-items-end h-100">
-                        <h5>
-                          <span className="badge bg-primary ms-2">New</span>
-                        </h5>
-                      </div>
-                    </div>
-                    <div className="hover-overlay">
-                      <div
-                        className="mask"
-                        style={{ backgroundColor: "rgba(251, 251, 251, 0.15)" }}
-                      />
-                    </div>
-                  </a>
-                </div>
-                <div className="card-body">
-                  <a href className="text-reset">
-                    <h5 className="card-title mb-3">Product name</h5>
-                  </a>
-                  <a href className="text-reset">
-                    <p>Category</p>
-                  </a>
-                  <h6 className="mb-3">$61.99</h6>
-                </div>
+            {products.map((product, index) => (
+              <div key={index} className="col-lg-4 col-md-12 mb-4">
+                <MFEProductCard {...product} />
               </div>
-            </div>
-            <div className="col-lg-4 col-md-6 mb-4">
-              <div className="card">
-                <div
-                  className="bg-image hover-zoom ripple ripple-surface ripple-surface-light"
-                  data-mdb-ripple-color="light"
-                >
-                  <img src={img1} className="card-img-top" />
-                  <a href="#!">
-                    <div className="mask">
-                      <div className="d-flex justify-content-start align-items-end h-100">
-                        <h5>
-                          <span className="badge bg-success ms-2">Eco</span>
-                        </h5>
-                      </div>
-                    </div>
-                    <div className="hover-overlay">
-                      <div
-                        className="mask"
-                        style={{ backgroundColor: "rgba(251, 251, 251, 0.15)" }}
-                      />
-                    </div>
-                  </a>
-                </div>
-                <div className="card-body">
-                  <a href className="text-reset">
-                    <h5 className="card-title mb-3">Product name</h5>
-                  </a>
-                  <a href className="text-reset">
-                    <p>Category</p>
-                  </a>
-                  <h6 className="mb-3">$61.99</h6>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-4 col-md-12 mb-4">
-              <div className="card">
-                <div
-                  className="bg-image hover-zoom ripple ripple-surface ripple-surface-light"
-                  data-mdb-ripple-color="light"
-                >
-                  <img src={img2} className="card-img-top" />
-                  <a href="#!">
-                    <div className="mask">
-                      <div className="d-flex justify-content-start align-items-end h-100">
-                        <h5>
-                          <span className="badge bg-primary ms-2">New</span>
-                        </h5>
-                      </div>
-                    </div>
-                    <div className="hover-overlay">
-                      <div
-                        className="mask"
-                        style={{ backgroundColor: "rgba(251, 251, 251, 0.15)" }}
-                      />
-                    </div>
-                  </a>
-                </div>
-                <div className="card-body">
-                  <a href className="text-reset">
-                    <h5 className="card-title mb-3">Product name</h5>
-                  </a>
-                  <a href className="text-reset">
-                    <p>Category</p>
-                  </a>
-                  <h6 className="mb-3">$61.99</h6>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="row">
-            <div className="col-lg-4 col-md-12 mb-4">
-              <div className="card">
-                <div
-                  className="bg-image hover-zoom ripple"
-                  data-mdb-ripple-color="light"
-                >
-                  <img src={img4} className="card-img-top" />
-                  <a href="#!">
-                    <div className="mask">
-                      <div className="d-flex justify-content-start align-items-end h-100">
-                        <h5>
-                          <span className="badge bg-success ms-2">Eco</span>
-                          <span className="badge bg-danger ms-2">-10%</span>
-                        </h5>
-                      </div>
-                    </div>
-                    <div className="hover-overlay">
-                      <div
-                        className="mask"
-                        style={{ backgroundColor: "rgba(251, 251, 251, 0.15)" }}
-                      />
-                    </div>
-                  </a>
-                </div>
-                <div className="card-body">
-                  <a href className="text-reset">
-                    <h5 className="card-title mb-3">Product name</h5>
-                  </a>
-                  <a href className="text-reset">
-                    <p>Category</p>
-                  </a>
-                  <h6 className="mb-3">
-                    <s>$61.99</s>
-                    <strong className="ms-2 text-danger">$50.99</strong>
-                  </h6>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-4 col-md-6 mb-4">
-              <div className="card">
-                <div
-                  className="bg-image hover-zoom ripple ripple-surface ripple-surface-light"
-                  data-mdb-ripple-color="light"
-                >
-                  <img src={img5} className="card-img-top" />
-                  <a href="#!">
-                    <div className="mask">
-                      <div className="d-flex justify-content-start align-items-end h-100" />
-                    </div>
-                    <div className="hover-overlay">
-                      <div
-                        className="mask"
-                        style={{ backgroundColor: "rgba(251, 251, 251, 0.15)" }}
-                      />
-                    </div>
-                  </a>
-                </div>
-                <div className="card-body">
-                  <a href className="text-reset">
-                    <h5 className="card-title mb-3">Product name</h5>
-                  </a>
-                  <a href className="text-reset">
-                    <p>Category</p>
-                  </a>
-                  <h6 className="mb-3">$61.99</h6>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-4 col-md-6 mb-4">
-              <div className="card">
-                <div
-                  className="bg-image hover-zoom ripple"
-                  data-mdb-ripple-color="light"
-                >
-                  <img src={img6} className="card-img-top" />
-                  <a href="#!">
-                    <div className="mask">
-                      <div className="d-flex justify-content-start align-items-end h-100">
-                        <h5>
-                          <span className="badge bg-primary ms-2">New</span>
-                          <span className="badge bg-success ms-2">Eco</span>
-                          <span className="badge bg-danger ms-2">-10%</span>
-                        </h5>
-                      </div>
-                    </div>
-                    <div className="hover-overlay">
-                      <div
-                        className="mask"
-                        style={{ backgroundColor: "rgba(251, 251, 251, 0.15)" }}
-                      />
-                    </div>
-                  </a>
-                </div>
-                <div className="card-body">
-                  <a href className="text-reset">
-                    <h5 className="card-title mb-3">Product name</h5>
-                  </a>
-                  <a href className="text-reset">
-                    <p>Category</p>
-                  </a>
-                  <h6 className="mb-3">
-                    <s>$61.99</s>
-                    <strong className="ms-2 text-danger">$50.99</strong>
-                  </h6>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>

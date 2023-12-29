@@ -6,4 +6,7 @@ const otpSchema = new Schema({
     otp : {type : Number},
 })
 
+
+
+
 module.exports = mongoose.model('Otp', otpSchema)
