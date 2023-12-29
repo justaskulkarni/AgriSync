@@ -9,10 +9,8 @@ const bcrypt = require('bcrypt')
 const validator = require('validator')
 const jwt = require('jsonwebtoken');
 const otpgen = require('otp-generators')
-const Mailjet = require('node-mailjet')
 const nodemailer = require('nodemailer');
 const router = express.Router()
-const mailjet = new Mailjet.apiConnect(process.env.MJ_PUBLIC, process.env.MJ_SECRET)
 const createToken = (id, role) => {
     return jwt.sign({ id, role }, process.env.SECRET, {
         expiresIn: 3 * 24 * 60 * 60
@@ -88,7 +86,7 @@ router.post('/login', async (req, res) => {
 
 })
 
-router.post('/sendotp', async (req, res) => {
+/* router.post('/sendotp', async (req, res) => {
     try {
         const email = req.body.email
         const genotp = otpgen.generate(6, { alphabets: false, upperCase: false, specialChar: false })
@@ -123,7 +121,7 @@ router.post('/sendotp', async (req, res) => {
     } catch (error) {
         res.status(400).json({ error: error.message });
     }
-})
+}) */
 
 router.post('/verify', async (req, res) => {
     try {
