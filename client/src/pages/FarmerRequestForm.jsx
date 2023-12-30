@@ -72,6 +72,7 @@ const FarmerDashboard = () => {
           district: credentials.district.trim(),
           quantity: credentials.quantity.toString(),
           state: credentials.state.trim(),
+          price: price,
         }
       });
     }

@@ -8,17 +8,21 @@ import logo from '../images/logo (2).jpeg';
 function Success() {
   const location = useLocation();
   const pdfGenerate = () => {
-    var doc = new jsPDF("landscape", "px", "a4", "false");
+    var doc = new jsPDF("portrait", "px", "a4", "false");
 
     // Set default font style
     doc.setFont("helvetica", "bold");
 
+    var midX = 130
+
     // Add header
     doc.setFontSize(32);
-    doc.text("Let's Endorse", 250, 20);                                     
+    doc.text("Let's Endorse", midX, 50);  
+    
+    doc.setFont("helvetica");
 
     // Add logo
-    doc.addImage(logo, "JPEG", 215, 20, 200, 200);
+    doc.addImage(logo, "JPEG", midX, 60, 200, 200);
 
     // Add details
     doc.setFontSize(16);
@@ -37,24 +41,40 @@ function Success() {
       location.state.state,
       location.state.district,
       location.state.quantity + " kg",
-      (Math.random()*100000).toString(),
-
+      (Math.floor((Math.random()*100000))).toString(),
     ]
 
-    let currentY = 250; // Starting Y position for details
+    let currentY = 310; // Starting Y position for details
 
     details.forEach((detail) => {
       doc.text(detail, 20, currentY);
       currentY += 20; // Increment Y position for the next detail
     });
 
+    currentY = 310; // Starting Y position for details
+
+    doc.setFont("helvetica", "bold");
+    doc.setTextColor(0,0,255);
+
+    values.forEach((detail) => {
+      doc.text(detail, 100, currentY);
+      currentY += 20; // Increment Y position for the next detail
+    });
+
     // Add a line break
-    currentY += 10;
+    currentY += 40;
+
+    doc.setFontSize(26)
+    doc.setTextColor(0,0,0)
+    doc.text("Price - ",midX+12,currentY)
+    doc.setTextColor(1,100,32)
+    doc.text("Rs. "+location.state.price.toString(),midX+82,currentY)
 
     // Add a thank you message
     doc.setTextColor(0, 0, 0); // Black color for the thank you message
-    doc.setFontSize(16);
-    doc.text("Thank you for your request!", 20, currentY);
+    doc.setFont("helvetica", "italic")
+    doc.setFontSize(32);
+    doc.text("Thank you for your request!", midX-54, currentY+40);
 
     // Save the document
     doc.save("endorsement_details.pdf");
