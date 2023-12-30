@@ -18,10 +18,10 @@ const crypto = require('crypto')
 
 const router = express.Router()
 
-const instance = new razorpay({
-    key_id: process.env.RAZORPAY_API_KEY,
-    key_secret: process.env.RAZORPAY_API_SECRET,
-  });
+// const instance = new razorpay({
+//     key_id: process.env.RAZORPAY_API_KEY,
+//     key_secret: process.env.RAZORPAY_API_SECRET,
+//   });
 
 const createToken = (id, role) => {
     return jwt.sign({ id, role }, process.env.SECRET, {
@@ -212,37 +212,88 @@ router.get('/getallgradedandnotreq/:id', async (req, res) => {
     }
 })
 
-// checkout api
-router.post("/checkout",async(req,res)=>{
-
-    const options ={
-        amount:Number(req.body*100),
-        currency:"INR",
-    };
-    const order = await instance.orders.create(options);
-    console.log(order);
-    res.status(200).json({
-        success:true,order
-    })
-
-})
-
-// payemnt verification
-router.post("/paymentverification",async(req,res)=>{
-    const {razorpay_order_id,razorpay_payment_id,razorpay_signature}=req.body;
-    const body = razorpay_order_id + "|" +razorpay_payment_id;
-    const expectedsgnature =crypto.createHmac('sha256',process.env.RAZORPAY_API_SECRET).update(body.toString()).digest('hex')
-    const isauth = expectedsgnature === razorpay_signature;
-    if(isauth){
-     await Payment.create({
-         razorpay_order_id,razorpay_payment_id,razorpay_signature 
-     })
-     res.redirect(`http://localhost:3000/api/mfe/paymentsuccess?reference=${razorpay_payment_id}`)
+router.post("/orders", async (req, res) => {
+    try {
+        console.log(req.body.amount)
+        const instance = new razorpay({
+        key_id: process.env.RAZORPAY_API_KEY,
+        key_secret: process.env.RAZORPAY_API_SECRET,
+      });
+  
+      const options = {
+        amount: 100*150, // Assuming req.body contains the correct data
+        currency: "INR",
+        // receipt: crypto.randomBytes(10).toString("hex"),
+      };
+  
+      instance.orders.create(options, (error, order) => {
+        if (error) {
+          console.log(error);
+          return res.status(500).json({ message: "Something Went Wrong!" });
+        }
+        console.log(order);
+        res.status(200).json({ data: order });
+      });
+    } catch (error) {
+      res.status(500).json({ message: "Internal Server Error!" });
+      console.log(error);
     }
-    else{
-     res.status(400).json({success:false});
-    }
- })
+  });
+  
+
+router.post("/verify", async (req, res) => {
+	try {
+		const { razorpay_order_id, razorpay_payment_id, razorpay_signature } =
+			req.body;
+		const sign = razorpay_order_id + "|" + razorpay_payment_id;
+		const expectedSign = crypto
+			.createHmac("sha256", process.env.RAZORPAY_API_SECRET)
+			.update(sign.toString())
+			.digest("hex");
+
+		if (razorpay_signature === expectedSign) {
+			return res.status(200).json({ message: "Payment verified successfully" });
+		} else {
+			return res.status(400).json({ message: "Invalid signature sent!" });
+		}
+	} catch (error) {
+		res.status(500).json({ message: "Internal Server Error!" });
+		console.log(error);
+	}
+});
+
+
+// // checkout api
+// router.post("/checkout",async(req,res)=>{
+
+//     const options ={
+//         amount:Number(req.body*100),
+//         currency:"INR",
+//     };
+//     const order = await instance.orders.create(options);
+//     console.log(order);
+//     res.status(200).json({
+//         success:true,order
+//     })
+
+// })
+
+// // payemnt verification
+// router.post("/paymentverification",async(req,res)=>{
+//     const {razorpay_order_id,razorpay_payment_id,razorpay_signature}=req.body;
+//     const body = razorpay_order_id + "|" +razorpay_payment_id;
+//     const expectedsgnature =crypto.createHmac('sha256',process.env.RAZORPAY_API_SECRET).update(body.toString()).digest('hex')
+//     const isauth = expectedsgnature === razorpay_signature;
+//     if(isauth){
+//      await Payment.create({
+//          razorpay_order_id,razorpay_payment_id,razorpay_signature 
+//      })
+//      res.redirect(`http://localhost:3000/api/mfe/paymentsuccess?reference=${razorpay_payment_id}`)
+//     }
+//     else{
+//      res.status(400).json({success:false});
+//     }
+//  })
  
  
  

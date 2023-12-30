@@ -13,53 +13,63 @@ import axios from "axios";
 
 const MFEProducts = () => {
 
-  const checkouthandler =async(amount)=>{
-    const key = "rzp_test_EnJA3p9CWHG7GU"
-    const {data:{order}}=await axios.post("http://localhost:6100/api/mfe/checkout",{amount})
-    console.log(window);
-    const options ={
-      key:key,
-      amount:order.amount,
-      currency:"INR",
-      name:"Sinmplyjs",
-      description:"Razorpay tutorial",
-      image:"https://avatars.githubusercontent.com/u/96648429?s=96&v=4",
-      order_id:order.id,
-      callback_url:"http://localhost:6100/api/mfe/paymentverification",
-      prefill:{
-        name:"AgriSync",
-        email:"gholesailie@gmail.com",
-        contact:"1234567890"
-      },
-      notes:{
-        "address":"razorapy official"
-      },
-      theme:{
-        "color":"#3399cc"
-      }
-    };
-    const razor = new window.Razorpay(options);
-    razor.open();
-  }
+  const initPayment = (data) => {
+		const options = {
+			key: "rzp_test_EnJA3p9CWHG7GU",
+			amount: data.amount,
+			currency: data.currency,
+			name: products.name,
+			description: "Test Transaction",
+			image: products.img,
+			order_id: data.id,
+			handler: async (response) => {
+				try {
+					const verifyUrl = "http://localhost:6100/api/mfe/verify";
+					const { data } = await axios.post(verifyUrl, response);
+					console.log(data);
+				} catch (error) {
+					console.log(error);
+				}
+			},
+			theme: {
+				color: "#3399cc",
+			},
+		};
+		const rzp1 = new window.Razorpay(options);
+		rzp1.open();
+	};
+
+	const handlePayment = async (price) => {
+		try {
+      console.log(price)
+			const orderUrl = "http://localhost:6100/api/mfe/orders";
+			const { data } = await axios.post(orderUrl, { amount: price });
+			// console.log(data);
+			initPayment(data.data);
+		} catch (error) {
+			console.log(error);
+		}
+	};
 
   const products = [
-    { img: img2, badge: { class: 'bg-primary', text: 'New' }, productName: 'Product name', category: 'Category', price: '$61.99', onClick: () => checkouthandler(checkouthandler) },
-    { img: img1, badge: { class: 'bg-success', text: 'Eco' }, productName: 'Product name', category: 'Category', price: '$61.99', onClick: () => checkouthandler(checkouthandler) },
-    { img: img2, badge: { class: 'bg-primary', text: 'New' }, productName: 'Product name', category: 'Category', price: '$61.99', onClick: () => checkouthandler(checkouthandler) },
-    { img: img4, badge: { class: 'bg-success', text: 'Eco' }, productName: 'Product name', category: 'Category', price: '$61.99', discountPrice: '$50.99', onClick: () => checkouthandler(checkouthandler) },
-    { img: img5, productName: 'Product name', category: 'Category', price: '$61.99', onClick: () => checkouthandler(checkouthandler) },
+    { img: img2, badge: { class: 'bg-primary', text: 'New' }, productName: 'Product name', category: 'Category', price: 'Rs. 150',  onClick: () => {handlePayment(61.99)} },
+    { img: img1, badge: { class: 'bg-success', text: 'Eco' }, productName: 'Product name', category: 'Category', price: 'Rs. 150',  onClick: () => {handlePayment(61.99)} },
+    { img: img2, badge: { class: 'bg-primary', text: 'New' }, productName: 'Product name', category: 'Category', price: 'Rs. 150',  onClick: () => {handlePayment(61.99)} },
+    { img: img4, badge: { class: 'bg-success', text: 'Eco' }, productName: 'Product name', category: 'Category', price: 'Rs. 150',  onClick: () => {handlePayment(61.99)} },
+    { img: img5, productName: 'Product name', category: 'Category', price: 'Rs. 150',  onClick: () => {handlePayment(61.99)}},
     {
       img: img6,
       badge: { class: 'bg-primary', text: 'New' },
       productName: 'Product name',
       category: 'Category',
-      price: (
-        <>
-          <s>$61.99</s>
-          <strong className="ms-2 text-danger">$50.99</strong>
-        </>
-      ),
-      onClick: () => checkouthandler(checkouthandler),
+      // price: (
+      //   <>
+      //     <s>Rs. 150</s>
+      //     <strong className="ms-2 text-danger">$50.99</strong>
+      //   </>
+      // ),
+      price: 'Rs. 150',
+      onClick: () => {handlePayment(61.99)},
     },
   ];
 
@@ -76,7 +86,7 @@ const MFEProducts = () => {
           <div className="row">
             {products.map((product, index) => (
               <div key={index} className="col-lg-4 col-md-12 mb-4">
-                <MFEProductCard {...product} />
+                <MFEProductCard {...product} onClick={() => handlePayment(product.price)} />
               </div>
             ))}
           </div>
