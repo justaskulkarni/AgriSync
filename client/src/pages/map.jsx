@@ -3,23 +3,30 @@ import React from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 
+const position = [20.59, 78.96];
 // Sample data with latitude and longitude for multiple points
 const points = [
-  { id: 1, lat: 37.7749, lon: -122.4194, name: 'San Francisco' },
-  { id: 2, lat: 40.7128, lon: -74.0060, name: 'New York City' },
+  { id: 1, lat: 19.333, lon: 73.25, name: 'Thane' },
+  { id: 2, lat: 17.112, lon: 74.7699, name: 'Sangli' },
   // Add more points as needed
 ];
+const transparentIcon = new L.Icon({
+  iconUrl: 'https://www.pngfind.com/pngs/m/114-1147878_location-poi-pin-marker-position-red-map-google.png', // Transparent pixel
+  iconSize: [60, 60], // Set the size to 1x1 pixel
+  iconAnchor: [0, 0],
+  popupAnchor: [0, 0],
+});
 
 // Component definition
 function StaticMap() {
   return (
-    <MapContainer center={[37.7749, -122.4194]} zoom={4} style={{ height: '500px', width: '100%' }}>
+    <MapContainer center={position} zoom={4} style={{ height: '700px', width: '100%' }}>
       <TileLayer
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
       />
       {points.map(point => (
-        <Marker key={point.id} position={[point.lat, point.lon]}>
+        <Marker icon={transparentIcon} key={point.id} position={[point.lat, point.lon]}>
           <Popup>{point.name}</Popup>
         </Marker>
       ))}
