@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../stylesheets/FarmerLogin.css";
+import styles from "../stylesheets/card.module.css";
 const FarmerSignup = () => {
   const [credentials, setCredentials] = useState({
     email: "",
@@ -47,14 +48,14 @@ const FarmerSignup = () => {
     }
 
     if (json.error) {
-      setError(json.error);
+      setError("Hi");
       setCredentials({
         email: "",
         name: "",
         password: "",
       });
       setTimeout(() => {
-        setError(null);
+        setError("Access Denied! Wrong OTP");
       }, 4000);
     }
   };
@@ -155,6 +156,9 @@ const FarmerSignup = () => {
                           </div>
                           )}
                         </form>
+                    {error && (
+                      <div className={styles.error}>Access Denied! Wrong OTP</div>
+                    )}
                       </div>
                     </div>
                     <div className="col-lg-6 d-flex align-items-center" style={{ background: 'linear-gradient(to right, #40E0D0, #6495ED)' }}>
