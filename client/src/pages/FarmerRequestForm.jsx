@@ -50,21 +50,30 @@ const FarmerDashboard = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const formData = {
+      name: credentials.name.name.trim(),
+      district: credentials.district.trim(),
+      quantity: credentials.quantity.toString(),
+      state: credentials.state.trim(),
+    }
     const response = await fetch("http://localhost:6100/api/request/postreq", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        name: credentials.name.name.trim(),
-        district: credentials.district.trim(),
-        quantity: credentials.quantity.toString(),
-        state: credentials.state.trim(),
-      }),
+      body: JSON.stringify(formData),
     });
 
     const json = await response.json();
 
     if (json.success) {
-      navigate("/success");
+      alert("Data: "+JSON.stringify(formData))
+      navigate("/success", {
+        state: {
+          name: credentials.name.name.trim(),
+          district: credentials.district.trim(),
+          quantity: credentials.quantity.toString(),
+          state: credentials.state.trim(),
+        }
+      });
     }
 
     if (json.error) {
@@ -79,6 +88,7 @@ const FarmerDashboard = () => {
 
     }
   };
+
   const renderTabs = () => {
     if (currentTab === 1) {
       return (
