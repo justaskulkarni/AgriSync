@@ -1,5 +1,4 @@
-# Team-78
-![Alt text](./images/image-6.png)
+
 
 <div align="center">
    <strong>AgriSync</strong> <br> <br>
@@ -89,22 +88,6 @@
 >In terminal for server folder run
 
     npm start
-## 👨‍💻Team Members
-
-
-- Aditya Kulkarni (Team Leader) 
-- Shinjini Chatterjee
-- Diya Verghese
-- Nandini Kanawade
-- Aaditya Vijayvargiya 
-
-
-## 👨‍🏫Mentors
-
-
-- Vinod Gowda 
-- Shivam Nema 
-- Sai Srinivas Duvvuri
 
 ## 📱Screenshots
 Login and Signup
