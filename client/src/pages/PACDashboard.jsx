@@ -2,6 +2,7 @@ import { useState } from "react";
 import Card from "../components/Card";
 import { useEffect } from "react";
 import styles from "../stylesheets/pacdashboard.module.css";
+import styles2 from "../stylesheets/card.module.css"
 import { useNavigate } from "react-router-dom";
 import "../stylesheets/Home.css";
 const PACDashboard = () => {
@@ -24,7 +25,7 @@ const PACDashboard = () => {
     if (json.success) {
       const newIdArray = json.data.map((item) => item._id);
       setIdArray(newIdArray);
-      
+
     }
   };
   useEffect(() => {
@@ -68,7 +69,21 @@ const PACDashboard = () => {
           )}
         </div>
         <div className={styles.column + " " + styles.middle}>
+          <div className={styles.leftbox}>
+            <span className={styles.analytics}>All Ungraded Requests</span>
+            <span className={styles.welcometext}>
+              Grade the Products so that they may be procured by the MFE
+            </span>
+          </div>
           <div className={styles.cardcontainer}>
+            <span className={styles.mentorrequests2}>All ungraded requests : </span>
+            <tr style={{ "backgroundColor": "whitesmoke" }}>
+              <td><p className={styles2.cardcontent} style={{ "paddingLeft": "4rem" }}>Product Name</p></td>
+              <td><p className={styles2.cardcontent} style={{ "paddingLeft": "6rem" }}>Quantity(in KG)</p></td>
+              <td><p className={styles2.cardcontent} style={{ "paddingLeft": "6rem" }}>Enter Grade</p></td>
+              <td><p className={styles2.cardcontent} style={{ "paddingLeft": "6rem" }}>Confirm Grade</p></td>
+              <td><p className={styles2.cardcontent} style={{ "paddingLeft": "6rem", "paddingRight": "4rem" }}>Discard Product</p></td>
+            </tr>
             {idArray.map((id) => (
               <Card key={id} mentid={id} />
             ))}

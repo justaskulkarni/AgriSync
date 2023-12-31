@@ -174,6 +174,17 @@ router.post('/grade/:id', async (req, res) => {
     }
 })
 
+router.delete('/delete/:id', async(req, res) => {
+    try {
+        const reqid = req.params.id;    
+        const objectIdReqid = new mongoose.Types.ObjectId(reqid);
+        const request = await Request.deleteOne({ _id: objectIdReqid });
+        res.json({ success: true })
+    } catch (error) {
+        res.status(400).json({ error: error.message })     
+    }
+})
+
 router.post('/updateprice/:id', async(req, res) =>{
     try {
         console.log('hi')

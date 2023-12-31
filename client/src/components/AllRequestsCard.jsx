@@ -31,7 +31,8 @@ const AllRequestsCard = ({mentid}) => {
   
 
   return (
-    <div className={styles.cardstyle}>
+    <>
+    {/* <div className={styles.cardstyle}>
       <div className={styles.statscontainer}>
         <div className={styles.innerdiv}>
             <div className={styles.innermost1}>
@@ -42,7 +43,14 @@ const AllRequestsCard = ({mentid}) => {
             </div>
         </div>
       </div>
-    </div>  
+    </div> */}  
+      <tr style = {{ "backgroundColor": "whitesmoke"}}>
+        <td><p className={styles.cardcontent} style={{ "paddingLeft": "6rem" }}>{credentials.name}</p></td>
+        <td><p className={styles.cardcontent} style={{ "paddingLeft": "12rem" }}>{credentials.quantity}</p></td>
+        <td><p className={styles.cardcontent} style={{ "paddingLeft": "12rem" }}>{credentials.district}</p></td>
+        <td><p className={styles.cardcontent} style={{ "paddingLeft": "12rem", "paddingRight": "6rem" }}>{credentials.status}</p></td>
+      </tr>
+    </>
   )
 }
 

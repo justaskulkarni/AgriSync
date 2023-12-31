@@ -2,6 +2,7 @@ import { useState } from "react";
 import PriceCard from "../components/PriceCard";
 import { useEffect } from "react";
 import styles from "../stylesheets/pacdashboard.module.css";
+import styles2 from "../stylesheets/card.module.css"
 import { useNavigate } from "react-router-dom";
 import "../stylesheets/Home.css";
 const PACPrice = () => {
@@ -61,7 +62,19 @@ const PACPrice = () => {
           )}
         </div>
         <div className={styles.column + " " + styles.middle}>
+          <div className={styles.leftbox}>
+            <span className={styles.analytics}>Commodity Prices</span>
+            <span className={styles.welcometext}>
+              View or Change the Prices of commodities
+            </span>
+          </div>
           <div className={styles.cardcontainer}>
+            <span className={styles.mentorrequests2}>All available commodities : </span>
+            <tr style={{ "backgroundColor": "whitesmoke" }}>
+                <td><p className={styles2.cardcontent} style = {{ "paddingLeft": "8rem", "width": "100px"}}>Name</p></td>
+                <td><p className={styles2.cardcontent} style={{ "paddingLeft": "18rem" }}>RS</p></td>
+                <td><p className={styles2.cardcontent} style={{ "paddingLeft": "18rem", "paddingRight": "8rem" }}>Change Price</p></td>
+            </tr>
             {idArray.map((id) => (
               <PriceCard key={id} itemid={id} />
             ))}

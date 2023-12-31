@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import MFEGradedCard from "../components/MFEGradedCard";
 import { Container, Row, Col, Nav } from "react-bootstrap";
 import styles from "../stylesheets/pacdashboard.module.css";
+import styles2 from "../stylesheets/card.module.css"
 import { useNavigate, navigate } from "react-router-dom";
 import "../stylesheets/Dashboard.css";
 
@@ -44,7 +45,7 @@ function MFEDashboard() {
   useEffect(() => {
     getdata();
   }, [idArray]);
-  
+
 
   return (
     <>
@@ -74,8 +75,14 @@ function MFEDashboard() {
             <span className={styles.welcometext}>Request products</span>
           </div>
 
-          <span className={styles.mentorrequests2}>All graded products: </span>
+          <span className={styles.mentorrequests2}>All graded products available at PAC: </span>
           <div className={styles.cardcontainer}>
+            <tr style={{ "backgroundColor": "whitesmoke" }}>
+              <td><p className={styles2.cardcontent} style={{ "paddingLeft": "8rem" }}>Name</p></td>
+              <td><p className={styles2.cardcontent} style={{ "paddingLeft": "11rem" }}>Quantity</p></td>
+              <td><p className={styles2.cardcontent} style={{ "paddingLeft": "11rem" }}>Grade</p></td>
+              <td><p className={styles2.cardcontent} style={{ "paddingLeft": "12rem", "paddingRight": "8rem" }}>Make a Request</p></td>
+            </tr>
             {idArray.map((id) => (
               <MFEGradedCard key={id} mentid={id} />
             ))}

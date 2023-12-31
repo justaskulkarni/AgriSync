@@ -16,11 +16,11 @@ const PriceCard = ({ itemid }) => {
     const handleSubmit = async (e) => {
         e.preventDefault()
         const response = await fetch(`http://localhost:6100/api/pac/updateprice/${itemid}`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ newPrice: price }),
-      });
-      window.location.reload();
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ newPrice: price }),
+        });
+        window.location.reload();
     }
     const onChange = (e) => {
         const { value } = e.target
@@ -41,8 +41,14 @@ const PriceCard = ({ itemid }) => {
     }, [])
 
     return (
-        <div className={styles.cardstyle}>
-            <div className={styles.statscontainer}>
+        <>
+            <tr style={{ "backgroundColor": "whitesmoke" }}>
+                <td><p className={styles.cardcontent} style = {{ "paddingLeft": "8rem", "width": "100px"}}>{credentials.name}</p></td>
+                <td><p className={styles.cardcontent} style={{ "paddingLeft": "18rem" }}>{credentials.price}</p></td>
+                <td><p className={styles.cardcontent} style={{ "paddingLeft": "18rem", "paddingRight": "8rem" }}><button onClick={handlePrice} className='btn btn-dark'>Change Price</button></p></td>
+            </tr>
+            <div>
+                {/* <div className={styles.statscontainer}>
                 <div className={styles.innerdiv}>
                     <div className={styles.innermost1}>
                         <p className={styles.cardcontent}>Name of Commodity: {credentials.name}</p>
@@ -50,16 +56,17 @@ const PriceCard = ({ itemid }) => {
                         <p className={styles.cardcontent}><button onClick={handlePrice} className='btn btn-dark'>Change Price</button></p>
                     </div>
                 </div>
-            </div>
-            {isOpen && (
-                <div className={styles.popupcontainer}>
-                    <div className={styles.popup}>
-                        <p className={styles.cardcontent}>New Price: <input type="string" value={price} name="price" onChange={onChange} /></p>
-                        <button onClick={handleSubmit} style={{ marginTop: '3.5rem', backgroundColor: '#ff9900', color: '#ffffff', padding: '8px 16px', border: 'none', borderRadius: '4px', cursor: 'pointer' }} >Confirm New Price</button>
+            </div> */}
+                {isOpen && (
+                    <div className={styles.popupcontainer}>
+                        <div className={styles.popup}>
+                            <p className={styles.cardcontent}>New Price: <input type="string" value={price} name="price" onChange={onChange} /></p>
+                            <button onClick={handleSubmit} style={{ marginTop: '3.5rem', backgroundColor: '#ff9900', color: '#ffffff', padding: '8px 16px', border: 'none', borderRadius: '4px', cursor: 'pointer' }} >Confirm New Price</button>
+                        </div>
                     </div>
-                </div>
-            )}
-        </div>
+                )}
+            </div>
+        </>
     )
 }
 
