@@ -9,6 +9,9 @@ import lightBlue from '../images/lbue.PNG'
 import blue from '../images/blue.PNG'
 import thx from '../images/thx.jpg'
 import kissan from '../images/kissan.JPG'
+import ad1 from '../images/ad1.JPG'
+import ad2 from '../images/ad2.JPG'
+import ad3 from '../images/ad3.JPG'
 
 function Success() {
   const location = useLocation();
@@ -139,7 +142,7 @@ function Success() {
           col2: '0',
           col3: '%',
           style: {
-            fontSize: 10 //optional, default 12
+            fontSize: 9 //optional, default 12
           }
         }],
         invDescLabel: "Request PDF",
@@ -156,10 +159,14 @@ function Success() {
 
     var pdf = pdfObject.jsPDFDocObject
 
+    var Y = 46
     var X = 10
-    var Y = 132
 
-    pdf.addImage(thx, X+15, Y, 50, 35)
+    pdf.addImage(kissan, X+50, Y, 90, 25)
+
+    Y = 132
+
+    pdf.addImage(thx, X+18, Y, 50, 35)
     Y = 192
 
     pdf.setTextColor('white')
@@ -209,7 +216,11 @@ function Success() {
     Y += 5
 
     pdf.text("any changes through the provided contact information.", X+4, Y)
-    Y += 5
+    Y += 3.5
+
+    pdf.addImage(ad1, X-1, Y, 41,21)
+    pdf.addImage(ad2, X+40, Y, 42,21)
+    pdf.addImage(ad3, X+82, Y, 109,21)
 
 
     pdf.save("Request_PDF")
