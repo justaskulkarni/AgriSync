@@ -1,17 +1,22 @@
 import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import firebase from "../firebase";
+import { getAuth, signInWithPhoneNumber } from "firebase/auth";
 import "../stylesheets/FarmerLogin.css";
 import styles from "../stylesheets/card.module.css";
 const FarmerSignup = () => {
   const [credentials, setCredentials] = useState({
     email: "",
+    pno: "",
     name: "",
     password: "",
-    otp: 0
+    otp: 0,
+    otp1: 0
   });
   const [error, setError] = useState(null);
   const [mailSent, setMailSent] = useState(false)
+  const [smsSent, setsmsSent] = useState(false)
   let navigate = useNavigate();
   const onChange = (event) => {
     setCredentials({ ...credentials, [event.target.name]: event.target.value });
@@ -39,6 +44,7 @@ const FarmerSignup = () => {
         password: credentials.password,
       }),
     });
+    
 
     const json = await response.json();
 
@@ -59,6 +65,81 @@ const FarmerSignup = () => {
       }, 4000);
     }
   };
+
+  //for sms otp 
+  // Change this part in your code
+const handleChange = (e) => {
+  const { name, value } = e.target;
+  // Use setCredentials instead of this.setState
+  setCredentials((prevCredentials) => ({
+    ...prevCredentials,
+    [name]: value,
+  }));
+};
+
+
+const configureCaptcha = () => {
+  // Check if window.recaptchaVerifier is not already defined
+  if (!window.recaptchaVerifier) {
+    window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('sign-in-button', {
+      'size': 'invisible',
+      'callback': (response) => {
+        // reCAPTCHA solved, allow signInWithPhoneNumber.
+        onSignInSubmit();
+        console.log("Recaptcha verified");
+      },
+      'expired-callback': () => {
+        // Handle expired reCAPTCHA if needed
+        console.log("Recaptcha expired");
+      },
+      defaultCountry: "IN"
+    });
+  }
+};
+
+
+  const onSignInSubmit = async (e) => {
+    // if (e && e.preventDefault) { e.preventDefault(); }
+
+        configureCaptcha()
+        const phoneNumber = "+91" + credentials.pno;
+        console.log(phoneNumber)
+
+        
+        try {
+          // Sign in with phone number
+          const appVerifier = window.recaptchaVerifier;
+          const auth = getAuth();
+          const confirmationResult = await signInWithPhoneNumber(auth, phoneNumber, appVerifier);
+      
+          // Prompt user to enter the code sent to their phone
+          window.confirmationResult = confirmationResult;
+          console.log("SMS sent. Enter the code.");
+        } catch (error) {
+          // Handle error
+          console.error("Error signing in with phone number:", error.message);
+        }
+        setsmsSent(true)
+      };
+    
+      const onSubmitOTP = async (e) => {
+        // if (e && e.preventDefault) { e.preventDefault(); }
+        const code = credentials.otp1;
+        console.log(code)
+        await window.confirmationResult.confirm(code).then((result) => {
+            // User signed in successfully.
+            const user = result.user;
+            console.log(JSON.stringify(user))
+            alert("User is verified")
+            // ...
+          }).catch((error) => {
+            // User couldn't sign in (bad verification code?)
+            // ...
+          });
+      }
+
+
+
   return (
     <>
       <div>
@@ -81,7 +162,7 @@ const FarmerSignup = () => {
                           />
                           <h4 className="mt-1 mb-5 pb-1">Farmer Signup!!</h4>
                         </div>
-                        <form>
+                        <form >
                           <h5>New Account</h5>
                           {!mailSent && (
                             <div>
@@ -106,6 +187,19 @@ const FarmerSignup = () => {
                                   className="form-control"
                                 />
                               </div>
+                              
+                              <div id="sign-in-button"> </div>
+                              <div className="form-outline mb-4">
+                                <input
+                                  type="number"
+                                  value={credentials.pno}
+                                  name="pno"
+                                  onChange={handleChange}
+                                  placeholder="Phone Number"
+                                  className="form-control"
+                                  required
+                                />
+                              </div>
 
                               <div className="form-outline mb-4">
                                 <input
@@ -121,6 +215,9 @@ const FarmerSignup = () => {
                           )}
                           {mailSent && (
                           <div className="form-outline mb-4">
+                            <label>
+                              Enter otp recieved on mail
+                            </label>
                             <input
                               type="number"
                               value={credentials.otp}
@@ -131,30 +228,80 @@ const FarmerSignup = () => {
                             />
                           </div>
                           )}
+                          {/* for sms */}
+                         
+                         
+                          {smsSent && (
+                          <div className="form-outline mb-4">
+                            <label>
+                              Enter otp recieved on Phone number
+                            </label>
+                            <input
+                              type="number"
+                              value={credentials.otp1}
+                              name="otp1"
+                              onChange={handleChange}
+                              placeholder="Enter OTP Received on SMS"
+                              className="form-control"
+                            />
+                          </div>
+                          )}
+                        
+
                           {!mailSent && (
-                          <div className="text-center pt-1 mb-5 pb-1">
+                          <div className="text-center pt-1 mb-1 pb-1">
                             <button
                               className="btn btn-primary btn-block fa-lg m-3"
                               style={{ background: 'linear-gradient(to right, #40E0D0, #6495ED)' }}
                               type="button"
                               onClick={handleMail}
                             >
-                              Send OTP
+                              Send Email OTP
                             </button>
                           </div>
                           )}
+
                           {mailSent && (
-                          <div className="text-center pt-1 mb-5 pb-1">
+                          <div className="text-center pt-1 mb-1 pb-1">
                             <button
                               className="btn btn-primary btn-block fa-lg m-3"
                               style={{ background: 'linear-gradient(to right, #40E0D0, #6495ED)' }}
                               type="button"
                               onClick={handleSubmit}
                             >
-                              Verify OTP
+                              Verify Email OTP
                             </button>
                           </div>
                           )}
+
+                          {/* sms */}
+                          {!smsSent && (
+                          <div className="text-center pt-1 mb-5 pb-1">
+                            <button
+                              className="btn btn-primary btn-block fa-lg m-3"
+                              style={{ background: 'linear-gradient(to right, #40E0D0, #6495ED)' }}
+                              type="button"
+                              onClick={onSignInSubmit}
+                            >
+                              Send SMS OTP
+                            </button>
+                          </div>
+                         )}
+                        
+
+                          {smsSent && (
+                          <div className="text-center pt-1 mb-5 pb-1">
+                            <button
+                              className="btn btn-primary btn-block fa-lg m-3"
+                              style={{ background: 'linear-gradient(to right, #40E0D0, #6495ED)' }}
+                              type="button"
+                              onClick={onSubmitOTP}
+                            >
+                              Verify SMS OTP
+                            </button>
+                          </div>
+                           )}
+                          
                         </form>
                     {error && (
                       <div className={styles.error}>Access Denied! Wrong OTP</div>
